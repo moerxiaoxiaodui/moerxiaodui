@@ -8,9 +8,11 @@
         <outputRelativeToContentRoot value="true" />
         <module name="springserver" />
         <module name="moerxiaodui" />
-        <module name="test" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="test" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
