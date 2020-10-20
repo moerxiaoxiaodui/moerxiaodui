@@ -7,8 +7,8 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="springserver" />
-        <module name="test" />
         <module name="moerxiaodui" />
+        <module name="test" />
       </profile>
     </annotationProcessing>
   </component>
