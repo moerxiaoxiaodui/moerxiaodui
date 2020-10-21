@@ -6,14 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="springserver" />
         <module name="springhr" />
         <module name="springuser" />
+        <module name="springserver" />
         <module name="moerxiaodui" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="moerxiaodui" target="1.8" />
       <module name="test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
