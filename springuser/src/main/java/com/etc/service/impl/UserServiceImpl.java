@@ -1,7 +1,12 @@
 package com.etc.service.impl;
 
+import com.etc.dao.UserDao;
+import com.etc.entity.User;
 import com.etc.service.UserService;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
+import java.util.Optional;
 
 /**
  * @author huge
@@ -9,4 +14,12 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class UserServiceImpl implements UserService {
+    @Resource
+    UserDao userDao;
+
+    @Override
+    public User findOneUserByPhone(String phone) {
+
+        return userDao.findOneUserByPhone(phone);
+    }
 }
