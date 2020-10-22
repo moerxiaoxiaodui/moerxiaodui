@@ -23,9 +23,9 @@ public class UserController {
     @Resource
     ResumeService resumeService;
     /*
-    * 用户登录
+    * 用户注册
     * */
-    @RequestMapping("/login/{phone}")
+    @RequestMapping("/register/{phone}")
     public User login(@PathVariable String phone){
         User user = userService.findOneUserByPhone(phone);
         if (user!=null){
