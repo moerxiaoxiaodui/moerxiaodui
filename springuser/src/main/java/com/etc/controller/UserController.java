@@ -4,12 +4,16 @@ import com.etc.entity.Resume;
 import com.etc.entity.User;
 import com.etc.service.ResumeService;
 import com.etc.service.UserService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author huge
@@ -17,6 +21,7 @@ import javax.annotation.Resource;
  */
 @RestController
 @RequestMapping("/user")
+@CrossOrigin("*") //解决跨域问题
 public class UserController {
     @Resource
     UserService userService;
@@ -47,5 +52,23 @@ public class UserController {
         System.out.println(resume);
         resumeService.saveUserResume(resume);
     }
+    /*
+    * 查找全部用户
+    * */
+    @RequestMapping("/findalluser")
+    @ResponseBody
+    public List<User> findAllUser(){
+        return userService.findAllUser();
+    }
+    /*
+    * 分页查找全部用户(error)
+    * */
+    @RequestMapping("/findusers")
+    @ResponseBody
+    public Page<User> findAllByPage(@RequestParam(defaultValue = "0") String page,@RequestParam(defaultValue = "10") String size){
+        Pageable pageable = PageRequest.of(Integer.parseInt(page),Integer.parseInt(size));
+        return userService.findAllByPage(pageable);
+    }
+
 
 }

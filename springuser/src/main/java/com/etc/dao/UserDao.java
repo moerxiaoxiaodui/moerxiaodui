@@ -1,6 +1,8 @@
 package com.etc.dao;
 
 import com.etc.entity.User;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
@@ -14,4 +16,8 @@ import java.io.Serializable;
 public interface UserDao extends JpaRepository<User,Integer>, JpaSpecificationExecutor<User>, Serializable {
     @Query("from User where phone = ?1")
     public User findOneUserByPhone(String phone);
+    @Query("select u from User u where u.phone like ?1")
+    public Page<User> findAllUserByPage(String phone, Pageable pageable);
+    @Query("select u from User u")
+    public Page<User> findAllByPage(Pageable pageable);
 }
