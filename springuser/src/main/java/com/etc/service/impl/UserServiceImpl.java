@@ -22,9 +22,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findOneUserByPhone(String phone) {
-
         return userDao.findOneUserByPhone(phone);
     }
+
 
     @Override
     public List<User> findAllUser() {
@@ -39,5 +39,15 @@ public class UserServiceImpl implements UserService {
     @Override
     public Page<User> findAllByPage(Pageable pageable) {
         return userDao.findAllByPage(pageable);
+    }
+
+    @Override
+    public void deleteUserById(int id) {
+        userDao.deleteById(id);
+    }
+
+    @Override
+    public void updateUser(User u) {
+        userDao.save(u);
     }
 }

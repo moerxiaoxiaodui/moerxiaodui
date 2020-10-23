@@ -19,4 +19,8 @@ public interface UserService {
     public Page<User> findAllUserByPage(String phone, Pageable pageable);
     //分页查找全部用户
     public Page<User> findAllByPage(Pageable pageable);
+    //删除用户
+    public void deleteUserById(int id);
+    //修改用户
+    public void updateUser(User u);
 }
