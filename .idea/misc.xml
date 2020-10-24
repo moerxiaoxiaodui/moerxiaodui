@@ -11,6 +11,7 @@
         <option value="$PROJECT_DIR$/springserver/pom.xml" />
         <option value="$PROJECT_DIR$/springuser/pom.xml" />
         <option value="$PROJECT_DIR$/springhr/pom.xml" />
+        <option value="$PROJECT_DIR$/springmanager/pom.xml" />
       </list>
     </option>
   </component>
