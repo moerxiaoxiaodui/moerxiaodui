@@ -5,16 +5,14 @@ import com.etc.service.HRService;
 import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
@@ -31,7 +29,7 @@ public class HRController {
         List<HR> list=hrService.findAll();
         return list;
     }
-    //验证注册和登录账号是否已存在
+    //验证注册账号是否已存在
     @RequestMapping("/findHrByPhone/{phone}")
     @ResponseBody
     String findHrByPhone(@PathVariable String phone){
@@ -39,19 +37,21 @@ public class HRController {
         HR hr=hrService.findHrByPhone(phone);
         if(hr!=null) {
             mv.addObject("msg","用户已存在");
-            return "register";
         }
-        return "login";
+        return "signin";
     }
     //登录
     @RequestMapping("/findHrByPhoneAndPhone")
-    ModelAndView findHrByPhoneAndPhone(String phone,String password, Model model){
+    ModelAndView findHrByPhoneAndPhone(String phone,String password,HttpServletResponse response) throws IOException {
+        PrintWriter out=response.getWriter();
         HR hr=hrService.findHrByPhoneAndPassword(phone,password);
-        model.addAttribute(hr);
-        return new ModelAndView("signup","hr",model);
+        if(hr==null) {
+            out.print("error");
+        }
+        return new ModelAndView("signup","hr",hr);
     }
-    @RequestMapping("/tologin")
-    public String toLogin(){
+    @RequestMapping("/hrlogin")
+    public String hrlogin(){
         return "signin";
     }
 }
