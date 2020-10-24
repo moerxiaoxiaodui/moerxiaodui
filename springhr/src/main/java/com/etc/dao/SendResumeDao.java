@@ -10,6 +10,5 @@ import org.springframework.data.jpa.repository.Query;
 import java.io.Serializable;
 
 public interface SendResumeDao extends JpaRepository<SendResume,Integer>, JpaSpecificationExecutor<SendResume>, Serializable {
-    @Query("select s from SendResume s")
-    public Page<SendResume> findAllResumeByPage(int id, Pageable pageable);
+
 }
