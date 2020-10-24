@@ -1,5 +1,7 @@
 package com.etc.entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -8,6 +10,7 @@ import java.io.Serializable;
  * @date 2020/10/21 - 15:58
  */
 @Entity
+@Data
 @Table(name = "resume")
 public class Resume implements Serializable {
     @Id
