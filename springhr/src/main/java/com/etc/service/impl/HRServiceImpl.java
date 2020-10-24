@@ -31,5 +31,15 @@ public class HRServiceImpl implements HRService {
         return hrDao.findByphoneAndPassword(phone,password);
     }
 
+    @Override
+    public void addHR(HR hr) {
+        hrDao.save(hr);
+    }
+
+    @Override
+    public void updateHR(HR hr) {
+        hrDao.save(hr);
+    }
+
 
 }
