@@ -9,6 +9,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -20,6 +21,8 @@ import java.util.List;
 public interface ManagerFeignClient {
     @RequestMapping(value = "/user/findalluser" , method= RequestMethod.GET)
     public List<User> findAllUser();
+
     @RequestMapping(value = "/user/findusers" , method = RequestMethod.GET)
-    public Page<User> findAllByPage(@PageableDefault(value = 10, sort = { "id" }, direction = Sort.Direction.ASC)Pageable pageable);
+    @ResponseBody
+    public Page<User> findAllByPage(@RequestParam(defaultValue = "0") String page,@RequestParam(defaultValue = "10") String size);
 }
