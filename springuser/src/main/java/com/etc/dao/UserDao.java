@@ -20,4 +20,6 @@ public interface UserDao extends JpaRepository<User,Integer>, JpaSpecificationEx
     public Page<User> findAllUserByPage(String phone, Pageable pageable);
     @Query("select u from User u")
     public Page<User> findAllByPage(Pageable pageable);
+    @Query("select u from User u where u.phone = ?1 and u.password = ?2")
+    public User findOneUserByPhoneAndPassword(String phone,String password);
 }

@@ -23,4 +23,6 @@ public interface UserService {
     public void deleteUserById(int id);
     //修改用户
     public void updateUser(User u);
+    //通过phone和password查找用户
+    public User findOneUser(User user);
 }
