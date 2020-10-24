@@ -61,13 +61,27 @@ public class UserController {
         return userService.findAllUser();
     }
     /*
-    * 分页查找全部用户(error)
-    * */
+     * 分页查找全部用户
+     * */
     @RequestMapping("/findusers")
     @ResponseBody
     public Page<User> findAllByPage(@RequestParam(defaultValue = "0") String page,@RequestParam(defaultValue = "10") String size){
         Pageable pageable = PageRequest.of(Integer.parseInt(page),Integer.parseInt(size));
         return userService.findAllByPage(pageable);
+    }
+    /*
+     * 根据phone分页查找全部用户
+     * */
+    @RequestMapping("/findusersbyphone")
+    @ResponseBody
+    public Page<User> findAllByPageAndPhone(String phone,@RequestParam(defaultValue = "0") String page,
+                                            @RequestParam(defaultValue = "10") String size){
+        Pageable pageable = PageRequest.of(Integer.parseInt(page),Integer.parseInt(size));
+        if (phone != null || phone !=""){
+            return userService.findAllUserByPage(phone,pageable);
+        }else{
+            return userService.findAllByPage(pageable);
+        }
     }
 
 

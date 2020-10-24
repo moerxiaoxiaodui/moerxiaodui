@@ -5,6 +5,7 @@ import com.etc.entity.User;
 import com.etc.feigninters.ManagerFeignClient;
 import com.etc.service.ManagerService;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
@@ -54,9 +55,9 @@ public class ManagerController {
     /*
     *
     * */
-    @RequestMapping("/findusers")
+    @RequestMapping("/findusers")  //error
     @ResponseBody
-    public Page<User> findAllByPage(@PageableDefault(value = 10, sort = { "id" }, direction = Sort.Direction.ASC)Pageable pageable){
-        return managerFeignClient.findAllByPage(pageable);
+    public Page<User> findAllByPage(@RequestParam(defaultValue = "0") String page,@RequestParam(defaultValue = "10") String size){
+        return managerFeignClient.findAllByPage(page,size);
     }
 }
