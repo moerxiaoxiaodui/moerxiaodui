@@ -18,9 +18,9 @@ public class ResumeController {
     @Resource
     private ResumeService resumeService;
 
-    @RequestMapping("/resume")
+    @RequestMapping("/myresume")
     public ModelAndView resume(){
-        ModelAndView mv= new ModelAndView("resume");
+        ModelAndView mv= new ModelAndView("profile");
         return mv;
     }
 

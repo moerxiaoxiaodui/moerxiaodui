@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -212,7 +212,6 @@
 		<!-- end header -->
 		<!-- main content -->
 		<main class="main main--breadcrumb">
-			<!-- breadcrumb -->
 			<div class="breadcrumb">
 				<div class="container">
 					<div class="row">
@@ -225,8 +224,6 @@
 					</div>
 				</div>
 			</div>
-			<!-- end breadcrumb -->
-
 			<div class="container">
 				<div class="row">
 					<div class="col-12 col-md-5 col-lg-4 col-xl-3">
@@ -278,44 +275,37 @@
 						<!-- end social -->
 					</div>
 					<div class="col-12 col-md-7 col-lg-8 col-xl-9">
-			
+
 
 						<div class="tab-content">
-							<!--<div class="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="tab-1">
-								
-							</div>-->
-
 							<div class="tab-pane fade show active" id="tab-2" role="tabpanel" aria-labelledby="tab-2">
-
 							</div>
-
 							<div class="tab-pane fade show active" id="tab-3" role="tabpanel" aria-labelledby="tab-3">
-								<!-- form -->
-								<form action="#" class="form">
+								<div action="/saveresume" class="form">
 
 									<div class="row">
 										<div class="col-12">
 											<h2 class="form__title">修改简历</h2>
 										</div>
-										
-										
-										
-										
+
 										<div class="col-5 col-lg-3-1">
 											<div class="form_group">
-												<label for="login" class="form__label">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名 : 
-												<input name="email" id="email" type="text" class="form__input3" placeholder="姓名"></label>
+												<label for="name" class="form__label">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名 :</label>
+												<input name="name" id="name" th:value="${resume?.name}" type="text" class="form__input3" placeholder="姓名">
 
 											</div>
 										</div>
 
 										<div class="col-5 col-lg-3-1">
 											<div class="form_group">
-												<label for="email" class="form__label">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别</label>
-												<input name="email" id="sex" type="text" class="form__input3" placeholder="男">
+												<label for="sex" class="form__label">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别</label>
+												<input name="sex" id="sex" th:value="${resume?.sex}" type="text" class="form__input3" placeholder="男">
 											</div>
 										</div>
-									
+
+										<input type="text" name="userId" id="userId" hidden="hidden" th:value="${resume?.userId}">
+
+
 										<div class="col-2 col-lg-3-1">
 												<img style="position:absolute;right:3vw;" src="img/user3.jpg" alt="">
 											    <a style="top: 14vh; position: absolute; right: 5vw;" href="#">更换头像</a>
@@ -323,108 +313,115 @@
 									
 										<div class="col-5 col-lg-3-1">
 											<div class="form_group">
-												<label for="firstname" class="form__label">出生年月:</label>
-												<input name="firstname" id="firstname" type="text" class="form__input3" placeholder="2020.01.01">
+												<label for="birth" class="form__label">出生年月:</label>
+												<input name="birth" id="birth"  th:value="${resume?.birth}" type="text" class="form__input3" placeholder="2020.01.01">
 											</div>
 										</div>
 
 										<div class="col-5 col-lg-3-1">
 											<div class="form_group">
-												<label for="lastname" class="form__label">毕业院校:</label>
-												<input name="lastname" id="lastname" type="text" class="form__input3" placeholder="赣南师范大学">
+												<label for="school" class="form__label">毕业院校:</label>
+												<input name="school" id="school"  th:value="${resume?.school}" type="text" class="form__input3" placeholder="赣南师范大学">
 											</div>
 										</div>
 										<div class="col-5 col-lg-3-1">
 											<div class="form_group">
-												<label for="lastname" class="form__label">学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;历:</label>
-												<input name="lastname" id="lastname" type="text" class="form__input3" placeholder="本科">
+												<label for="major" class="form__label">学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;历:</label>
+												<input name="major" id="major" th:value="${resume?.major}" type="text" class="form__input3" placeholder="本科">
 											</div>
 										</div>
 										<div class="col-5 col-lg-3-1">
 											<div class="form_group">
-												<label for="login" class="form__label">毕业时间:</label>
-												<input name="login" id="login" type="text" class="form__input3" placeholder="2021.07">
+												<label for="endTime" class="form__label">毕业时间:</label>
+												<input name="endTime" id="endTime" th:value="${resume?.endTime}" type="text" class="form__input3" placeholder="2021.07">
 											</div>
 										</div>
 
 										<div class="col-5 col-lg-3-1">
 											<div class="form_group" style="margin-right: 0;">
 												<label for="email" class="form__label">邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱：</label>
-												<input name="email" id="email" type="text" class="form__input3" placeholder="1269999999@qq.com">
+												<input name="email" id="email"  th:value="${resume?.email}" type="text" class="form__input3" placeholder="1269999999@qq.com">
 											</div>
 										</div>
 
 										<div>
 											<div>
-												<label for="lastname" class="form__label">&nbsp;&nbsp;&nbsp;&nbsp;联系电话:</label>
-												<input name="lastname" id="lastname" type="text" class="form__input3" placeholder="15570000000">
+												<label for="phone" class="form__label">&nbsp;&nbsp;&nbsp;&nbsp;联系电话:</label>
+												<input name="phone" id="phone" th:value="${resume?.phone}" type="text" class="form__input3" placeholder="15570000000">
 											</div>
 										</div>
 										<div class="col-12 col-lg-6-1">
 											<div class="form_group">
-												<label for="lastname" class="form__label">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址:</label>
-												<input name="lastname" id="lastname" type="text" class="form__input3" placeholder="福建省厦门市思明区软件园二期观日路4号">
-						
+												<label for="address" class="form__label">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址:</label>
+												<input name="address" id="address"  th:value="${resume?.address}" type="text" class="form__input3" placeholder="福建省厦门市思明区软件园二期观日路4号">
 											</div>
 										</div>
 
 										<div class="col-12 col-lg-6-1">
 											<div class="form_group">
-												<label for="lastname" class="form__label">技能专长:</label>
-												<textarea name="description" id="description" class="form__textarea" placeholder="技能专长"></textarea>
+												<label for="skills" class="form__label">专业技能</label>
+												<textarea name="skills" id="skills" th:value="${resume?.skills}" class="form__textarea" placeholder="专业技能"></textarea>
 											</div>
 										</div>
-
-									</div>
-
 									<div class="col-12 col-lg-6-1">
 										<div class="form_group">
-											<label for="lastname" class="form__label">奖&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;项:</label>
-											<textarea name="description" id="description" class="form__textarea" placeholder="所获奖项"></textarea>
+											<label for="awards" class="form__label">奖&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;项:</label>
+											<textarea name="awards" id="awards" th:value="${resume?.awards}" class="form__textarea" placeholder="所获奖项"></textarea>
 										</div>
 									</div>
 									<div class="col-12 col-lg-6-1">
 										<div class="form_group">
-											<label for="lastname" class="form__label">项目经历:</label>
-											<textarea name="description" id="description" class="form__textarea" placeholder="项目介绍"></textarea>
+											<label for="experience" class="form__label">项目经历:</label>
+											<textarea name="experience" id="experience" th:value="${resume?.experience}" class="form__textarea" placeholder="项目介绍"></textarea>
 										</div>
 									</div>
 									<div class="col-12 col-lg-6-1">
 										<div class="form_group">
-											<label for="lastname" class="form__label">自我评价</label>
-											<textarea name="description" id="description" class="form__textarea" placeholder="评价内容"></textarea>
+											<label for="introduce" class="form__label">自我评价</label>
+											<textarea name="introduce" id="introduce" th:value="${resume?.introduce}" class="form__textarea" placeholder="评价内容"></textarea>
 										</div>
 									</div>
 									<div class="col-12">
-										<button class="form__btn" type="button"><span>保存</span></button>
+										<button class="form__btn" type="button" onclick="submit()"><span>保存</span></button>
 									</div>
+								  </div>
 							</div>
-							</form>
-							<!-- end form -->
-
-
-							<!-- end form -->
 						</div>
 					</div>
 				</div>
-
-			
-
-			</div>
+				</div>
 			</div>
 		</main>
-		<!-- end main content -->
 
-		
-		<!-- JS -->
-		<script src="js/jquery-3.4.1.min.js"></script>
-		<script src="js/bootstrap.bundle.min.js"></script>
-		<script src="js/owl.carousel.min.js"></script>
-		<script src="js/wNumb.js"></script>
-		<script src="js/nouislider.min.js"></script>
-		<script src="js/select2.min.js"></script>
-		<script src="js/jquery.mousewheel.min.js"></script>
-		<script src="js/jquery.mCustomScrollbar.min.js"></script>
-		<script src="js/main.js"></script>
+
+		<script type="text/javascript">
+			function submit() {
+				$.ajax({
+					type:"post",
+					url:"/saveresume",
+					data:{
+						name:$("#name").val,
+						sex:$("#sex").val,
+						birth:$("#birth").val,
+						school:$("#school").val,
+						address:$("#address").val,
+						endTime:$("#endTime").val,
+						skills:$("#skills").val,
+						phone:$("#phone").val,
+						email:$("#email").val,
+						introduce:$("#introduce").val,
+						experience:$("#experience").val,
+						awards:$("#awards").val,
+						major:$("#major").val,
+						education:$("#education").val,
+						userId:$("#userId").val
+					},
+					success:function (data) {
+						alert("保存成功！");
+					}
+				})
+			}
+		</script>
+
 	</body>
 </html>
