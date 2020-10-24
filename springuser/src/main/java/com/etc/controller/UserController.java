@@ -7,10 +7,9 @@ import com.etc.service.UserService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -19,8 +18,8 @@ import java.util.List;
  * @author huge
  * @date 2020/10/21 - 10:22
  */
-@RestController
-@RequestMapping("/user")
+@Controller
+/*@RequestMapping("/user")*/
 @CrossOrigin("*") //解决跨域问题
 public class UserController {
     @Resource
@@ -82,6 +81,13 @@ public class UserController {
         }else{
             return userService.findAllByPage(pageable);
         }
+    }
+    /*
+    * 去登录
+    * */
+    @RequestMapping("/tologin")
+    public String toLogin(){
+        return "signin";
     }
 
 
