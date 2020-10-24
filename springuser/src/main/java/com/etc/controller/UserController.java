@@ -89,6 +89,20 @@ public class UserController {
     public String toLogin(){
         return "signin";
     }
+    @RequestMapping("/login")
+    public String Login(User user){
+        if(userService.findOneUser(user)!=null){
+            return "redirect:/index";
+        }else{
+            return "redirect:/tologin";
+        }
+    }
+    @RequestMapping("/index")
+    public String index(){
+        return "index";
+    }
+
+
 
 
 
