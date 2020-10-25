@@ -13,7 +13,7 @@ import java.util.List;
 public interface HRDao extends JpaRepository<HR,Integer>, JpaSpecificationExecutor<HR>, Serializable {
     @Query("select h from HR h where h.phone= ?1")
     HR findByPhone(String phone);
-    @Query("select h from HR h where u.phone=?1 and u.password=?2")
+    @Query("select h from HR h where h.phone=?1 and h.password=?2")
     HR findByphoneAndPassword(String phone,String password);
     List<HR> findAllById(int id);
     List<HR> findAllByphoneAndPassword(String phone,String password);
