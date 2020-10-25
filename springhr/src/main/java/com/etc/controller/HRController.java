@@ -30,7 +30,7 @@ public class HRController {
         return list;
     }
     //验证注册账号是否已存在
-    @RequestMapping("/findHrByPhone/{phone}")
+    @RequestMapping("/findHrByPhone")
     @ResponseBody
     String findHrByPhone(@PathVariable String phone){
         ModelAndView mv=new ModelAndView();
@@ -40,18 +40,29 @@ public class HRController {
         }
         return "signin";
     }
+    @RequestMapping("/register")
+    String register(HR hr){
+        hrService.addHR(hr);
+        return "signin";
+    }
     //登录
     @RequestMapping("/findHrByPhoneAndPhone")
-    ModelAndView findHrByPhoneAndPhone(String phone,String password,HttpServletResponse response) throws IOException {
-        PrintWriter out=response.getWriter();
+    @ResponseBody
+    ModelAndView findHrByPhoneAndPhone(String phone,String password) {
+        ModelAndView mv=new ModelAndView();
         HR hr=hrService.findHrByPhoneAndPassword(phone,password);
+        System.out.println(hr);
         if(hr==null) {
-            out.print("error");
+            mv.addObject("用户名或密码错误");
         }
         return new ModelAndView("signup","hr",hr);
     }
     @RequestMapping("/hrlogin")
     public String hrlogin(){
         return "signin";
+    }
+    @RequestMapping("/hrregister")
+    public String hrregister(){
+        return "signup";
     }
 }
