@@ -1,5 +1,7 @@
 package com.etc.entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -8,6 +10,7 @@ import java.io.Serializable;
  * @date 2020/10/21 - 15:58
  */
 @Entity
+@Data
 @Table(name = "resume")
 public class Resume implements Serializable {
     @Id
@@ -42,15 +45,15 @@ public class Resume implements Serializable {
     String avatar;
     @Column(name = "major")
     String major;
-    @Column(name = "ecucation")
-    String ecucation;
+    @Column(name = "education")
+    String education;
     @Column(name = "userId")
     String userId;
 
     public Resume() {
     }
 
-    public Resume(String name, String sex, String birth, String school, String address, String endTime, String skills, String phone, String email, String introduce, String experience, String awards, String avatar, String major, String ecucation, String userId) {
+    public Resume(String name, String sex, String birth, String school, String address, String endTime, String skills, String phone, String email, String introduce, String experience, String awards, String avatar, String major, String education, String userId) {
         this.name = name;
         this.sex = sex;
         this.birth = birth;
@@ -65,7 +68,7 @@ public class Resume implements Serializable {
         this.awards = awards;
         this.avatar = avatar;
         this.major = major;
-        this.ecucation = ecucation;
+        this.education = education;
         this.userId = userId;
     }
 
@@ -189,12 +192,12 @@ public class Resume implements Serializable {
         this.major = major;
     }
 
-    public String getEcucation() {
-        return ecucation;
+    public String getEducation() {
+        return education;
     }
 
-    public void setEcucation(String ecucation) {
-        this.ecucation = ecucation;
+    public void setEducation(String education) {
+        this.education = education;
     }
 
     public String getUserId() {
@@ -223,7 +226,7 @@ public class Resume implements Serializable {
                 ", awards='" + awards + '\'' +
                 ", avatar='" + avatar + '\'' +
                 ", major='" + major + '\'' +
-                ", ecucation='" + ecucation + '\'' +
+                ", education='" + education + '\'' +
                 ", userId='" + userId + '\'' +
                 '}';
     }
