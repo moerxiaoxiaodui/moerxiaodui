@@ -36,11 +36,12 @@ public class CompanyController {
     @ResponseBody
     public Page<ViewInfo> findAllCompanys(String phone,@RequestParam(defaultValue = "0") String page,
                                           @RequestParam(defaultValue = "10") String size) {
-        Pageable pageable = PageRequest.of(Integer.parseInt("0"),Integer.parseInt("10"));
-        if(phone !=null || phone !=""){
+        Pageable pageable = PageRequest.of(Integer.parseInt(page),Integer.parseInt(size));
+        if(phone !=null && phone !=""){
             return companyService.findAllCompanyAndHR2(phone,pageable);
         }else{
             return companyService.findAllCompanys(pageable);
         }
     }
+
 }
