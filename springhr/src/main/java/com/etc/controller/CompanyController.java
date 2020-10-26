@@ -2,8 +2,10 @@ package com.etc.controller;
 
 import com.etc.entity.AllInfo;
 import com.etc.entity.Company;
+import com.etc.entity.HR;
 import com.etc.entity.ViewInfo;
 import com.etc.service.CompanyService;
+import com.etc.service.HRService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -24,6 +26,8 @@ import java.util.List;
 public class CompanyController {
     @Resource
     CompanyService companyService;
+    @Resource
+    HRService hrService;
     @RequestMapping("findallcompany")
     public List<Company> findAllCompany(){
         return companyService.findAllCompany();
@@ -74,8 +78,10 @@ public class CompanyController {
     public ModelAndView findCHR(HttpSession session){
         String hrphone = (String)session.getAttribute("hrphone");
         List<ViewInfo> onelist = companyService.findCompanyAndHRByPhone(hrphone);
+        HR hr=hrService.findHrByPhone(hrphone);
         ModelAndView mv=new ModelAndView("HRindex");
         mv.addObject("onelist",onelist);
+        mv.addObject("hr",hr);
         return mv;
     }
 

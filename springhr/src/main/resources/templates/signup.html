@@ -111,6 +111,7 @@
 						url:"/findHrByPhone", //提交的地址
 						data:{phone:phone},
 						async: false,
+						dataType:"json",
 						success: function(data) {  //成功
 							if(data.msg=="success") {
 								alert("该用户已注册");
@@ -127,9 +128,9 @@
 				return flag1;
 			});
 			$("#password").blur(function(){
-				var pwd=$("#pwd").val();
+				var password=$("#password").val();
 				var message = "";
-				if (pwd == '') {
+				if (password == '') {
 					message = "密码不能为空！";
 				} else {
 					flag2 = true;
@@ -149,7 +150,7 @@
 						data:{phone:phone,password:pwd},
 						async: false,
 						success: function(data) {  //成功
-							alert("注册成功！") //就将返回的数据显示出
+							alert("注册成功！");//就将返回的数据显示出
 						}
 					});
 				}
