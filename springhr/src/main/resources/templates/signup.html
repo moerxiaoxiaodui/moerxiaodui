@@ -20,10 +20,7 @@
 		<link rel="apple-touch-icon" sizes="72x72" href="icon/apple-touch-icon-72x72.png">
 		<link rel="apple-touch-icon" sizes="114x114" href="icon/apple-touch-icon-114x114.png">
 		<link rel="apple-touch-icon" sizes="144x144" href="icon/apple-touch-icon-144x144.png">
-
 		<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-		<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-		<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<meta name="description" content="">
 		<meta name="keywords" content="">
 		<meta name="author" content="Dmitry Volkov">
@@ -36,9 +33,8 @@
 				<div class="row">
 					<div class="col-12">
 						<div class="sign__content">
-							<!-- authorization form -->
-							<form action="#" class="sign__form">
-
+							<!-- registration form -->
+							<form id="myFormRegister" class="sign__form">
 								<a href="index.html" class="sign__logo">
 									<img src="img/logo.svg" alt="">
 								</a>
@@ -60,21 +56,25 @@
 
 								<div class="sign__group">
 									<label for="level" class="form__label">请输入您的手机号码</label>
-									<input type="text" class="sign__input" placeholder="号码">
+									<input type="text" class="sign__input" placeholder="号码" id="phone">
 								</div>
 								<div class="sign__group">
 									<label for="level" class="form__label">请输入密码</label>
-									<input type="text" class="sign__input" placeholder="password">
+									<input type="text" class="sign__input" placeholder="password" id="password">
+								</div>
+
+								<div class="sign__group">
+									<label for="level" class="form__label">请再次输入密码</label>
+									<input type="password" class="sign__input" placeholder="againPassword">
 								</div>
 
 
-								<button class="sign__btn" type="button"><span>登录</span></button>
 
-								<span class="sign__text">还没注册？<a href="signup.html">注册！</a></span>
+								<button class="sign__btn" type="button" id="register"><span>注册</span></button>
 
-								<span class="sign__text"><a href="forgot.html">忘记密码？</a></span>
+								<span class="sign__text">已经有账号了? <a href="/hrlogin">登入!</a></span>
 							</form>
-							<!-- end authorization form -->
+							<!-- registration form -->
 						</div>
 					</div>
 				</div>
@@ -91,5 +91,70 @@
 		<script src="js/jquery.mousewheel.min.js"></script>
 		<script src="js/jquery.mCustomScrollbar.min.js"></script>
 		<script src="js/main.js"></script>
+		<script type="text/javascript">
+			var flag1 = false;
+			var flag2=false;
+			$("#phone").blur(function(){
+				var phone=$("#phone").val();
+				console.log(phone);
+				var message = "";
+				var myreg = /^(((13[0-9]{1})|(14[0-9]{1})|(17[0-9]{1})|(15[0-3]{1})|(15[4-9]{1})|(18[0-9]{1})|(199))+\d{8})$/;
+				if (phone == '') {
+					message = "手机号码不能为空！";
+				} else if (phone.length != 11) {
+					message = "请输入11位手机号码！";
+				} else if (!myreg.test(phone)) {
+					message = "请输入有效的手机号码！";
+				} else if(phone!=null){
+					$.ajax({
+						type: "POST",   //提交的方法
+						url:"/findHrByPhone", //提交的地址
+						data:{phone:phone},
+						async: false,
+						success: function(data) {  //成功
+							if(data.msg=="success") {
+								alert("该用户已注册");
+							}
+							flag1=true; //就将返回的数据显示出
+						}
+					});
+				}else {
+					flag1 = true;
+				}
+				if (message != "") {
+					alert(message);
+				}
+				return flag1;
+			});
+			$("#password").blur(function(){
+				var pwd=$("#pwd").val();
+				var message = "";
+				if (pwd == '') {
+					message = "密码不能为空！";
+				} else {
+					flag2 = true;
+				}
+				if (message != "") {
+					alert(message);
+				}
+				return flag2;
+			});
+			$("#register").click(function () {
+				var phone=$("#phone").val();
+				var pwd=$("#password").val();
+				if(flag1==true&&flag2==true){
+					$.ajax({
+						type: "POST",   //提交的方法
+						url:"/register", //提交的地址
+						data:{phone:phone,password:pwd},
+						async: false,
+						success: function(data) {  //成功
+							alert("注册成功！") //就将返回的数据显示出
+						}
+					});
+				}
+
+			});
+		</script>
 	</body>
 </html>
