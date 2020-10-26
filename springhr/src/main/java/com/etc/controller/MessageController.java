@@ -32,7 +32,6 @@ public class MessageController {
         messageService.saveMessage(message);
     }
 
-
     //标记已读信息
     @RequestMapping("saveState")
     @ResponseBody
