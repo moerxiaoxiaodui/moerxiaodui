@@ -17,4 +17,5 @@ public interface CompanyService {
 
     public List<AllInfo> findAllCHR();
     public List<AllInfo> findCHR(String phone);
+    public List<ViewInfo> findCompanyAndHRByPhone(String phone);
 }

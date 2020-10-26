@@ -55,4 +55,9 @@ public class CompanyServiceImpl implements CompanyService {
         return companyDao.findCHR(phone);
     }
 
+    @Override
+    public List<ViewInfo> findCompanyAndHRByPhone(String phone) {
+        return companyDao.findCompanyAndHRByPhone(phone);
+    }
+
 }

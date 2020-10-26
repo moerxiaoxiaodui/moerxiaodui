@@ -24,7 +24,8 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="author" content="Dmitry Volkov">
-    <title>iJ – Job Board & Freelance Services Marketplace HTML Template</title>
+    <title>主页</title>
+   <!-- <base th:href="|${#request.getContextPath()}/|"/>-->
 </head>
 
 <body>
@@ -52,7 +53,7 @@
                     <ul class="header__nav">
                         <!-- dropdown -->
                         <li class="header__nav-item">
-                            <a href="HRindex.html" class="header__nav-link">主页</a>
+                            <a href="/findchr" class="header__nav-link">主页</a>
                         </li>
                         <!-- end dropdown -->
 
@@ -63,7 +64,7 @@
 
                             <ul class="dropdown-menu header__dropdown-menu" aria-labelledby="dropdownMenu专案">
 
-                                <li><a href="add-project.html">发布工作</a></li>
+                                <li><a href="/addjob">发布工作</a></li>
                             </ul>
                         </li>
                         <!-- end dropdown -->

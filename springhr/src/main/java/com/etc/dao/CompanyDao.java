@@ -19,6 +19,9 @@ public interface CompanyDao extends JpaRepository<Company,Integer>,JpaSpecificat
    @Query(value="select new com.etc.entity.ViewInfo(c,h) from Company c,HR h where c.id = h.compentId")
     public List<ViewInfo> findAllCompanyAndHR();
 
+    @Query(value="select new com.etc.entity.ViewInfo(c,h) from Company c,HR h where c.id = h.compentId and h.phone=?1")
+    public List<ViewInfo> findCompanyAndHRByPhone(String phone);
+
     @Query(value="select new com.etc.entity.ViewInfo(c,h) from Company c,HR h where c.id = h.compentId")
     public Page<ViewInfo> findAllCompanys(Pageable pageable);
 

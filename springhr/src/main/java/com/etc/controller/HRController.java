@@ -1,7 +1,9 @@
 package com.etc.controller;
 
 import com.etc.entity.HR;
+import com.etc.entity.Recruit;
 import com.etc.service.HRService;
+import com.etc.service.RecruitService;
 import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +26,8 @@ public class HRController {
 
     @Resource
     HRService hrService;
+    @Resource
+    RecruitService recruitService;
 
     @RequestMapping("/findall")
     @ResponseBody
@@ -68,6 +72,8 @@ public class HRController {
         HR hr=hrService.findHrByPhoneAndPassword(phone,password);
         if(hr!=null){
             session.setAttribute("hrphone",phone);
+            HR hr2=hrService.findHrByPhone(phone);
+            session.setAttribute("hrid",hr2.getId());
             return "redirect:/findchr";
         }else {
             return "redirect:/hrlogin";
@@ -86,4 +92,23 @@ public class HRController {
     public String HRIndex(){
         return "HRindex";
     }
+    /*
+    * 发布职位
+    * */
+    @RequestMapping("/addrecruit")
+    public String addOneRecruit(Recruit recruit,HttpSession session){
+        Integer hrid = (Integer)session.getAttribute("hrid");
+        recruit.setHrId(hrid);
+        recruitService.addOneRecruit(recruit);
+        return "redirect:/addjob";
+    }
+    /*
+    * 跳转到add-project.html
+    * */
+    @RequestMapping("/addjob")
+    public String addJob(){
+        return "add-project";
+    }
+
+
 }
