@@ -73,10 +73,10 @@ public class CompanyController {
     @RequestMapping("findchr")
     public ModelAndView findCHR(HttpSession session){
         String hrphone = (String)session.getAttribute("hrphone");
-        System.out.println(hrphone);
-        List<AllInfo> onelist = companyService.findCHR(hrphone);
+        List<ViewInfo> onelist = companyService.findCompanyAndHRByPhone(hrphone);
         ModelAndView mv=new ModelAndView("HRindex");
         mv.addObject("onelist",onelist);
         return mv;
     }
+
 }
