@@ -37,7 +37,7 @@
             <div class="col-12">
                 <div class="sign__content">
                     <!-- authorization form -->
-                    <form id="myForm" class="sign__form">
+                    <form action="/hrtestlogin" id="myForm" class="sign__form">
 
                         <a href="index.html" class="sign__logo">
                             <img src="img/logo.svg" alt="">
@@ -63,12 +63,12 @@
                             <input type="text" class="sign__input" placeholder="号码" name="phone" id="phone">
                         </div>
                         <div class="sign__group">
-                            <label for="level" class="form__label">请输入密码</label>
-                            <input type="text" class="sign__input" placeholder="password" name="password" id="pwd">
+                            <label for="level"  class="form__label">请输入密码</label>
+                            <input type="password" class="sign__input" placeholder="password" name="password" id="pwd">
                         </div>
 
 
-                        <button class="sign__btn" type="button" id="login"><span>登录</span></button>
+                        <button class="sign__btn" type="submit" id="login"><span>登录</span></button>
 
                         <span class="sign__text">还没注册？<a href="/hrregister">注册！</a></span>
 
@@ -91,7 +91,7 @@
 <script src="js/jquery.mousewheel.min.js"></script>
 <script src="js/jquery.mCustomScrollbar.min.js"></script>
 <script src="js/main.js"></script>
-<script type="text/javascript">
+<!--<script type="text/javascript">
     var flag1 = false;
     var flag2=false;
     $("#phone").blur(function(){
@@ -146,6 +146,6 @@
         }
 
     });
-</script>
+</script>-->
 </body>
 </html>

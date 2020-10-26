@@ -61,6 +61,19 @@ public class HRController {
         }
         return null;
     }
+    //hr登录test。
+    @RequestMapping("/hrtestlogin")
+    public String toHRIndex(@RequestParam(name = "phone") String phone,@RequestParam(name = "password") String password
+            ,HttpSession session) {
+        HR hr=hrService.findHrByPhoneAndPassword(phone,password);
+        if(hr!=null){
+            session.setAttribute("hrphone",phone);
+            return "redirect:/findchr";
+        }else {
+            return "redirect:/hrlogin";
+        }
+    }
+
     @RequestMapping("/hrlogin")
     public String hrlogin(){
         return "signin";
@@ -68,5 +81,9 @@ public class HRController {
     @RequestMapping("/hrregister")
     public String hrregister(){
         return "signup";
+    }
+    @RequestMapping("/hrindex")
+    public String HRIndex(){
+        return "HRindex";
     }
 }

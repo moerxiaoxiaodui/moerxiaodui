@@ -1,21 +1,25 @@
 package com.etc.controller;
 
+import com.etc.entity.AllInfo;
 import com.etc.entity.Company;
 import com.etc.entity.ViewInfo;
 import com.etc.service.CompanyService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
  * @author huge
  * @date 2020/10/24 - 15:53
  */
-@RestController
+@Controller
 @CrossOrigin("*") //解决跨域问题
 public class CompanyController {
     @Resource
@@ -43,5 +47,36 @@ public class CompanyController {
             return companyService.findAllCompanys(pageable);
         }
     }
+    /*
+    * 查找全部公司、hr和招聘条件,返回List。
+    * */
+    @RequestMapping("findallchr")
+    public ModelAndView findAllCHR(){
+        List<AllInfo> alllist = companyService.findAllCHR();
+        ModelAndView mv=new ModelAndView("HRindex");
+        mv.addObject("alllist",alllist);
+        return mv;
+    }
 
+    @RequestMapping("findallchr2")
+    @ResponseBody
+    public List<AllInfo> findAllCHR2(){
+        List<AllInfo> alllist = companyService.findAllCHR();
+        return alllist;
+    }
+
+    /*@RequestMapping("test")
+    @ResponseBody
+    public String findAllCHR2(HttpSession session){
+        return session.getAttribute("test").toString();
+    }*/
+    @RequestMapping("findchr")
+    public ModelAndView findCHR(HttpSession session){
+        String hrphone = (String)session.getAttribute("hrphone");
+        System.out.println(hrphone);
+        List<AllInfo> onelist = companyService.findCHR(hrphone);
+        ModelAndView mv=new ModelAndView("HRindex");
+        mv.addObject("onelist",onelist);
+        return mv;
+    }
 }
