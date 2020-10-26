@@ -14,7 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @CrossOrigin("*")
@@ -32,13 +34,14 @@ public class HRController {
     //验证注册账号是否已存在
     @RequestMapping("/findHrByPhone")
     @ResponseBody
-    String findHrByPhone(@PathVariable String phone){
-        ModelAndView mv=new ModelAndView();
+    Map findHrByPhone(@PathVariable String phone){
+        Map<String,Object> map=new HashMap<>();
         HR hr=hrService.findHrByPhone(phone);
         if(hr!=null) {
-            mv.addObject("msg","用户已存在");
+            map.put("msg","success");
+            return map;
         }
-        return "signin";
+        return null;
     }
     @RequestMapping("/register")
     String register(HR hr){
@@ -46,16 +49,17 @@ public class HRController {
         return "signin";
     }
     //登录
-    @RequestMapping("/findHrByPhoneAndPhone")
+    @RequestMapping("/findHrByPhoneAndPassword")
     @ResponseBody
-    ModelAndView findHrByPhoneAndPhone(String phone,String password) {
-        ModelAndView mv=new ModelAndView();
+    Map findHrByPhoneAndPhone(String phone, String password) {
+        Map<String,Object> map=new HashMap<>();
         HR hr=hrService.findHrByPhoneAndPassword(phone,password);
         System.out.println(hr);
         if(hr==null) {
-            mv.addObject("用户名或密码错误");
+            map.put("msg","error");
+            return map;
         }
-        return new ModelAndView("signup","hr",hr);
+        return null;
     }
     @RequestMapping("/hrlogin")
     public String hrlogin(){

@@ -112,12 +112,11 @@
 						data:{phone:phone},
 						async: false,
 						success: function(data) {  //成功
+							if(data.msg=="success") {
+								alert("该用户已注册");
+							}
 							flag1=true; //就将返回的数据显示出
-						},
-						error: function(data) {  //失败的话
-							message="该用户已注册";
 						}
-
 					});
 				}else {
 					flag1 = true;
@@ -149,9 +148,6 @@
 						url:"/register", //提交的地址
 						data:{phone:phone,password:pwd},
 						async: false,
-						error: function(data) {  //失败的话
-							alert(data);
-						},
 						success: function(data) {  //成功
 							alert("注册成功！") //就将返回的数据显示出
 						}
