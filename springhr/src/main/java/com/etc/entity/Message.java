@@ -37,4 +37,7 @@ public class Message {
                 ", readState='" + readState + '\'' +
                 '}';
     }
+
+    public void setReadState(String s) {
+    }
 }
