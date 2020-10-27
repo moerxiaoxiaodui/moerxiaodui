@@ -1,427 +1,399 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-		<!-- CSS -->
-		<link rel="stylesheet" href="css/bootstrap-reboot.min.css">
-		<link rel="stylesheet" href="css/bootstrap-grid.min.css">
-		<link rel="stylesheet" href="css/owl.carousel.min.css">
-		<link rel="stylesheet" href="css/nouislider.min.css">
-		<link rel="stylesheet" href="css/select2.min.css">
-		<link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
-		<link rel="stylesheet" href="css/ionicons.min.css">
-		<link rel="stylesheet" href="css/main.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/nouislider.min.css">
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="css/main.css">
 
-		<!-- Favicons -->
-		<link rel="icon" type="image/png" href="icon/favicon-32x32.png" sizes="32x32">
-		<link rel="apple-touch-icon" href="icon/favicon-32x32.png">
-		<link rel="apple-touch-icon" sizes="72x72" href="icon/apple-touch-icon-72x72.png">
-		<link rel="apple-touch-icon" sizes="114x114" href="icon/apple-touch-icon-114x114.png">
-		<link rel="apple-touch-icon" sizes="144x144" href="icon/apple-touch-icon-144x144.png">
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="icon/favicon-32x32.png" sizes="32x32">
+    <link rel="apple-touch-icon" href="icon/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="icon/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="icon/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="icon/apple-touch-icon-144x144.png">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <title>iJ – Job Board </title>
+</head>
 
-		<meta name="description" content="">
-		<meta name="keywords" content="">
-		<meta name="author" content="Dmitry Volkov">
-		<title>iJ – Job Board & Freelance Services Marketplace HTML Template</title>
-	</head>
+<body>
+<!-- header -->
+<header class="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-7 col-md-9 col-lg-8 col-xl-9">
+                <div class="header__content">
+                    <!-- header menu btn -->
+                    <button class="header__btn" type="button">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <!-- end header menu btn -->
 
-	<body>
-		<!-- header -->
-		<header class="header">
-			<div class="container">
-				<div class="row">
-					<div class="col-7 col-md-9 col-lg-8 col-xl-9">
-						<div class="header__content">
-							<!-- header menu btn -->
-							<button class="header__btn" type="button">
-								<span></span>
-								<span></span>
-								<span></span>
-							</button>
-							<!-- end header menu btn -->
+                    <!-- header logo -->
+                    <a href="index.html" class="header__logo">
+                        <img src="img/logo.svg" alt="">
+                    </a>
+                    <!-- end header logo -->
 
-							<!-- header logo -->
-							<a href="index.html" class="header__logo">
-								<img src="img/logo.svg" alt="">
-							</a>
-							<!-- end header logo -->
+                    <!-- header nav -->
+                    <ul class="header__nav">
+                        <!-- dropdown -->
+                        <li class="header__nav-item">
+                            <a href="/myresume" class="header__nav-link">主页</a>
+                        </li>
+                        <!-- end dropdown -->
 
-							<!-- header nav -->
-							<ul class="header__nav">
-								<!-- dropdown -->
-								<li class="header__nav-item">
-									<a href="index.html" class="header__nav-link">主页</a>
-								</li>
-								<!-- end dropdown -->
+                        <!-- dropdown -->
+                        <li class="header__nav-item">
+                            <a class="dropdown-toggle header__nav-link" href="#" role="button" id="dropdownMenu专案"
+                               data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">专案</a>
 
-								<!-- dropdown -->
-								<li class="header__nav-item">
-									<a class="dropdown-toggle header__nav-link" href="#" role="button" id="dropdownMenu专案" data-toggle="dropdown"
-									 aria-haspopup="true" aria-expanded="false">专案</a>
+                            <ul class="dropdown-menu header__dropdown-menu" aria-labelledby="dropdownMenu专案">
+                                <li><a href="project.html">Single project</a></li>
+                                <li><a href="add-project.html">发布项目</a></li>
+                            </ul>
+                        </li>
+                        <!-- end dropdown -->
 
-									<ul class="dropdown-menu header__dropdown-menu" aria-labelledby="dropdownMenu专案">
-										<li><a href="project.html">Single project</a></li>
-										<li><a href="add-project.html">发布项目</a></li>
-									</ul>
-								</li>
-								<!-- end dropdown -->
+                        <!-- dropdown -->
+                        <li class="header__nav-item">
+                            <a class="dropdown-toggle header__nav-link" href="#" role="button" id="dropdownMenu工作"
+                               data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">工作</a>
 
-								<!-- dropdown -->
-								<li class="header__nav-item">
-									<a class="dropdown-toggle header__nav-link" href="#" role="button" id="dropdownMenu工作" data-toggle="dropdown"
-									 aria-haspopup="true" aria-expanded="false">工作</a>
+                            <ul class="dropdown-menu header__dropdown-menu" aria-labelledby="dropdownMenu工作">
+                                <li><a href="工作.html">工作</a></li>
+                                <li><a href="job.html">职位详情</a></li>
+                                <li><a href="add-job.html">发布工作</a></li>
+                            </ul>
+                        </li>
+                        <!-- end dropdown -->
 
-									<ul class="dropdown-menu header__dropdown-menu" aria-labelledby="dropdownMenu工作">
-										<li><a href="工作.html">工作</a></li>
-										<li><a href="job.html">职位详情</a></li>
-										<li><a href="add-job.html">发布工作</a></li>
-									</ul>
-								</li>
-								<!-- end dropdown -->
+                        <!-- dropdown -->
+                        <li class="header__nav-item">
+                            <a class="dropdown-toggle header__nav-link" href="#" role="button" id="dropdownMenu公司介绍"
+                               data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">公司介绍</a>
 
-								<!-- dropdown -->
-								<li class="header__nav-item">
-									<a class="dropdown-toggle header__nav-link" href="#" role="button" id="dropdownMenu公司介绍" data-toggle="dropdown"
-									 aria-haspopup="true" aria-expanded="false">公司介绍</a>
+                            <ul class="dropdown-menu header__dropdown-menu" aria-labelledby="dropdownMenu公司介绍">
+                                <li><a href="companies.html">公司介绍</a></li>
+                                <li><a href="company.html">公司简介</a></li>
+                            </ul>
+                        </li>
+                        <!-- end dropdown -->
 
-									<ul class="dropdown-menu header__dropdown-menu" aria-labelledby="dropdownMenu公司介绍">
-										<li><a href="companies.html">公司介绍</a></li>
-										<li><a href="company.html">公司简介</a></li>
-									</ul>
-								</li>
-								<!-- end dropdown -->
+                        <!-- dropdown -->
+                        <li class="header__nav-item">
+                            <a class="dropdown-toggle header__nav-link" href="#" role="button" id="dropdownMenu个人资料"
+                               data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">个人资料</a>
 
-								<!-- dropdown -->
-								<li class="header__nav-item">
-									<a class="dropdown-toggle header__nav-link" href="#" role="button" id="dropdownMenu个人资料" data-toggle="dropdown"
-									 aria-haspopup="true" aria-expanded="false">个人资料</a>
+                            <ul class="dropdown-menu header__dropdown-menu" aria-labelledby="dropdownMenu个人资料">
+                                <li><a href="profiles.html">个人资料</a></li>
+                                <li><a href="profile.html">个人资料</a></li>
+                            </ul>
+                        </li>
+                        <!-- end dropdown -->
 
-									<ul class="dropdown-menu header__dropdown-menu" aria-labelledby="dropdownMenu个人资料">
-										<li><a href="profiles.html">个人资料</a></li>
-										<li><a href="profile.html">个人资料</a></li>
-									</ul>
-								</li>
-								<!-- end dropdown -->
+                        <!-- dropdown -->
+                        <li class="header__nav-item">
+                            <a class="dropdown-toggle header__nav-link" href="#" role="button" id="dropdownMenu页数"
+                               data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">页数</a>
 
-								<!-- dropdown -->
-								<li class="header__nav-item">
-									<a class="dropdown-toggle header__nav-link" href="#" role="button" id="dropdownMenu页数" data-toggle="dropdown"
-									 aria-haspopup="true" aria-expanded="false">页数</a>
+                            <ul class="dropdown-menu header__dropdown-menu" aria-labelledby="dropdownMenu页数">
+                                <li><a href="messages.html">Messages</a></li>
+                                <li><a href="faq.html">Help Center</a></li>
+                                <li><a href="contacts.html">Contacts</a></li>
+                                <li><a href="privacy.html">Privacy Policy</a></li>
+                                <li><a href="signin.html">Sign In</a></li>
+                                <li><a href="signup.html">Sign Up</a></li>
+                                <li><a href="forgot.html">Forgot password</a></li>
+                            </ul>
+                        </li>
+                        <!-- end dropdown -->
+                    </ul>
+                    <!-- end header nav -->
 
-									<ul class="dropdown-menu header__dropdown-menu" aria-labelledby="dropdownMenu页数">
-										<li><a href="messages.html">Messages</a></li>
-										<li><a href="faq.html">Help Center</a></li>
-										<li><a href="contacts.html">Contacts</a></li>
-										<li><a href="privacy.html">Privacy Policy</a></li>
-										<li><a href="signin.html">Sign In</a></li>
-										<li><a href="signup.html">Sign Up</a></li>
-										<li><a href="forgot.html">Forgot password</a></li>
-									</ul>
-								</li>
-								<!-- end dropdown -->
-							</ul>
-							<!-- end header nav -->
+                    <!-- header Search -->
+                    <form action="#" class="header__Search">
+                        <input class="header__Search-input" type="text" placeholder="Search...">
+                        <button class="header__Search-button" type="button">
+                            <i class="icon ion-ios-Search"></i>
+                        </button>
+                    </form>
+                    <!-- end header Search -->
+                </div>
+            </div>
 
-							<!-- header Search -->
-							<form action="#" class="header__Search">
-								<input class="header__Search-input" type="text" placeholder="Search...">
-								<button class="header__Search-button" type="button">
-									<i class="icon ion-ios-Search"></i>
-								</button>
-							</form>
-							<!-- end header Search -->
-						</div>
-					</div>
+            <div class="col-5 col-md-3 col-lg-4 col-xl-3">
+                <div class="header__content header__content--end">
+                    <a href="messages.html" class="header__messages header__messages--active">
+                        <i class="icon ion-ios-mail"></i>
+                    </a>
 
-					<div class="col-5 col-md-3 col-lg-4 col-xl-3">
-						<div class="header__content header__content--end">
-							<a href="messages.html" class="header__messages header__messages--active">
-								<i class="icon ion-ios-mail"></i>
-							</a>
+                    <div class="header__notifications">
+                        <a class="dropdown-toggle header__notifications-btn header__notifications-btn--active" href="#"
+                           role="button"
+                           id="dropdownMenuNotifications" data-toggle="dropdown" aria-haspopup="true"
+                           aria-expanded="false">
+                            <i class="icon ion-ios-notifications"></i>
+                        </a>
 
-							<div class="header__notifications">
-								<a class="dropdown-toggle header__notifications-btn header__notifications-btn--active" href="#" role="button"
-								 id="dropdownMenuNotifications" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									<i class="icon ion-ios-notifications"></i>
-								</a>
+                        <div class="dropdown-menu dropdown-menu-right header__dropdown-menu header__dropdown-menu--right header__dropdown-menu--ntf"
+                             aria-labelledby="dropdownMenuNotifications">
+                            <div class="header__ntf">
+                                <a href="#" class="header__ntf-img">
+                                    <img src="img/user3.jpg" alt="">
+                                </a>
+                                <h6 class="header__ntf-title">
+                                    <span>我是谁</span> Comment on your project.
+                                </h6>
+                            </div>
 
-								<div class="dropdown-menu dropdown-menu-right header__dropdown-menu header__dropdown-menu--right header__dropdown-menu--ntf"
-								 aria-labelledby="dropdownMenuNotifications">
-									<div class="header__ntf">
-										<a href="#" class="header__ntf-img">
-											<img src="img/user3.jpg" alt="">
-										</a>
-										<h6 class="header__ntf-title">
-											<span>我是谁</span> Comment on your project.
-										</h6>
-									</div>
+                            <div class="header__ntf">
+                                <a href="#" class="header__ntf-img">
+                                    <img src="img/user7.jpg" alt="">
+                                </a>
+                                <h6 class="header__ntf-title">
+                                    <span>Andy Ramos</span> Comment on your project.
+                                </h6>
+                            </div>
 
-									<div class="header__ntf">
-										<a href="#" class="header__ntf-img">
-											<img src="img/user7.jpg" alt="">
-										</a>
-										<h6 class="header__ntf-title">
-											<span>Andy Ramos</span> Comment on your project.
-										</h6>
-									</div>
+                            <div class="header__ntf">
+                                <a href="#" class="header__ntf-img">
+                                    <img src="img/user4.jpg" alt="">
+                                </a>
+                                <h6 class="header__ntf-title">
+                                    <span>Sophia Mendoza</span> Comment on your project.
+                                </h6>
+                            </div>
 
-									<div class="header__ntf">
-										<a href="#" class="header__ntf-img">
-											<img src="img/user4.jpg" alt="">
-										</a>
-										<h6 class="header__ntf-title">
-											<span>Sophia Mendoza</span> Comment on your project.
-										</h6>
-									</div>
+                            <div class="header__ntf">
+                                <a href="#" class="header__ntf-img">
+                                    <img src="img/user1.jpg" alt="">
+                                </a>
+                                <h6 class="header__ntf-title">
+                                    <span>Tony Young</span> Comment on your project.
+                                </h6>
+                            </div>
 
-									<div class="header__ntf">
-										<a href="#" class="header__ntf-img">
-											<img src="img/user1.jpg" alt="">
-										</a>
-										<h6 class="header__ntf-title">
-											<span>Tony Young</span> Comment on your project.
-										</h6>
-									</div>
+                            <a href="#" class="header__ntf-more">查看更多</a>
+                        </div>
+                    </div>
 
-									<a href="#" class="header__ntf-more">查看更多</a>
-								</div>
-							</div>
+                    <div class="header__profile">
+                        <a class="dropdown-toggle header__profile-btn" href="#" role="button" id="dropdownMenuProfile"
+                           data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                            <img src="img/user5.jpg" alt="">
+                            <span>John Doe</span>
+                        </a>
 
-							<div class="header__profile">
-								<a class="dropdown-toggle header__profile-btn" href="#" role="button" id="dropdownMenuProfile" data-toggle="dropdown"
-								 aria-haspopup="true" aria-expanded="false">
-									<img src="img/user5.jpg" alt="">
-									<span>John Doe</span>
-								</a>
+                        <ul class="dropdown-menu dropdown-menu-right header__dropdown-menu header__dropdown-menu--right"
+                            aria-labelledby="dropdownMenuProfile">
+                            <li><a href="profile.html"><i class="icon ion-ios-settings"></i> Settings</a></li>
+                            <li><a href="privacy.html"><i class="icon ion-ios-lock"></i> Privacy</a></li>
+                            <li><a href="faq.html"><i class="icon ion-ios-help-buoy"></i> FAQ</a></li>
+                            <li><a href="#"><i class="icon ion-ios-exit"></i> Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- end header -->
+<!-- main content -->
+<main class="main main--breadcrumb">
+    <!-- breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <ul class="breadcrumb__wrap">
+                        <li class="breadcrumb__item"><a href="#">Home</a></li>
+                        <li class="breadcrumb__item breadcrumb__item--active">John Doe</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end breadcrumb -->
 
-								<ul class="dropdown-menu dropdown-menu-right header__dropdown-menu header__dropdown-menu--right"
-								 aria-labelledby="dropdownMenuProfile">
-									<li><a href="profile.html"><i class="icon ion-ios-settings"></i> Settings</a></li>
-									<li><a href="privacy.html"><i class="icon ion-ios-lock"></i> Privacy</a></li>
-									<li><a href="faq.html"><i class="icon ion-ios-help-buoy"></i> FAQ</a></li>
-									<li><a href="#"><i class="icon ion-ios-exit"></i> Logout</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</header>
-		<!-- end header -->
-		<!-- main content -->
-		<main class="main main--breadcrumb">
-			<div class="breadcrumb">
-				<div class="container">
-					<div class="row">
-						<div class="col-12">
-							<ul class="breadcrumb__wrap">
-								<li class="breadcrumb__item"><a href="#">Home</a></li>
-								<li class="breadcrumb__item breadcrumb__item--active">John Doe</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="container">
-				<div class="row">
-					<div class="col-12 col-md-5 col-lg-4 col-xl-3">
-						<!-- user -->
-						<div class="user">
-							<div class="user__head">
-								<div class="user__img">
-									<img src="img/user5.jpg" alt="">
-								</div>
-							</div>
-							<div class="user__title">
-								<h2>姓名</h2>
-								<p1>意向职位</p1>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-5 col-lg-4 col-xl-2">
 
-								<div class="profile__actions">
-									<div class="post__location1">
-										<i class="icon ion-ios-navigate"></i>
-										<span>地址：</span>
-									</div>
-
-									<div class="post__actions">
-										<a href="#" class="post__actions-btn post__actions-btn--blue"><span>软件工程</span></a>
-									</div>
-								</div>
-							</div>
-							<ul class="user__list">
-								<li><span class="glyphicon glyphicon-user">性别</span> <span>男</span></li>
-								<li><span>出生年月</span> <span>2000.01.01</span></li>
-								<li><span>现住地址</span> <span>赣州XX县XX村</span></li>
-								<li><span>毕业院校</span> <span>赣南师范大学</span></li>
-								<li><span>毕业时间 </span> <span> 2021.06 </span></li>
-								<li><span>学历 </span> <span> 本科 </span></li>
-								<li><span>技能</span> <span> 掌握Java </span></li>
-								<li><span>邮箱 </span> <span> 126######@qq.com </span></li>
-								<li><span>项目经历 </span> <span>项目1 项目2 项目3 </span></li>
-								<li><span>获奖情况</span> <span> 斩获无数大奖 </span></li>
-
-							</ul>
-						</div>
-						<!-- end user -->
-
-						<!-- social -->
-						<div class="sidebox">
-							<div class="sidebox__share">
-								<span>自我评价:</span>
-
-							</div>
-						</div>
-						<!-- end social -->
-					</div>
-					<div class="col-12 col-md-7 col-lg-8 col-xl-9">
+            </div>
+            <div class="col-12 col-md-7 col-lg-8 col-xl-8">
 
 
-						<div class="tab-content">
-							<div class="tab-pane fade show active" id="tab-2" role="tabpanel" aria-labelledby="tab-2">
-							</div>
-							<div class="tab-pane fade show active" id="tab-3" role="tabpanel" aria-labelledby="tab-3">
-								<div action="/saveresume" class="form">
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="tab-2" role="tabpanel" aria-labelledby="tab-2">
+                    </div>
+                    <div class="tab-pane fade show active" id="tab-3" role="tabpanel" aria-labelledby="tab-3">
+                        <!-- form -->
+                        <form action="/saveresume" class="form" method="post" enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h2 class="form__title">编辑简历</h2>
+                                </div>
 
-									<div class="row">
-										<div class="col-12">
-											<h2 class="form__title">修改简历</h2>
-										</div>
+                                <div class="col-5 col-lg-3-1">
+                                    <div class="form_group">
+                                        <label for="name" class="form__label">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名
+                                            :</label>
+                                        <input name="name" id="name" th:value="${resume?.name}" type="text"
+                                               class="form__input3" placeholder="姓名">
 
-										<div class="col-5 col-lg-3-1">
-											<div class="form_group">
-												<label for="name" class="form__label">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名 :</label>
-												<input name="name" id="name" th:value="${resume?.name}" type="text" class="form__input3" placeholder="姓名">
+                                    </div>
+                                </div>
 
-											</div>
-										</div>
+                                <div class="col-5 col-lg-3-1">
+                                    <div class="form_group">
+                                        <label for="sex" class="form__label">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别</label>
+                                        <input name="sex" id="sex" th:value="${resume?.sex}" type="text"
+                                               class="form__input3" placeholder="男">
+                                    </div>
+                                </div>
 
-										<div class="col-5 col-lg-3-1">
-											<div class="form_group">
-												<label for="sex" class="form__label">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别</label>
-												<input name="sex" id="sex" th:value="${resume?.sex}" type="text" class="form__input3" placeholder="男">
-											</div>
-										</div>
-
-										<input type="text" name="userId" id="userId" hidden="hidden" th:value="${resume?.userId}">
-
-
-										<div class="col-2 col-lg-3-1">
-												<img style="position:absolute;right:3vw;" src="img/user3.jpg" alt="">
-											    <a style="top: 14vh; position: absolute; right: 5vw;" href="#">更换头像</a>
-										</div>
-									
-										<div class="col-5 col-lg-3-1">
-											<div class="form_group">
-												<label for="birth" class="form__label">出生年月:</label>
-												<input name="birth" id="birth"  th:value="${resume?.birth}" type="text" class="form__input3" placeholder="2020.01.01">
-											</div>
-										</div>
-
-										<div class="col-5 col-lg-3-1">
-											<div class="form_group">
-												<label for="school" class="form__label">毕业院校:</label>
-												<input name="school" id="school"  th:value="${resume?.school}" type="text" class="form__input3" placeholder="赣南师范大学">
-											</div>
-										</div>
-										<div class="col-5 col-lg-3-1">
-											<div class="form_group">
-												<label for="major" class="form__label">学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;历:</label>
-												<input name="major" id="major" th:value="${resume?.major}" type="text" class="form__input3" placeholder="本科">
-											</div>
-										</div>
-										<div class="col-5 col-lg-3-1">
-											<div class="form_group">
-												<label for="endTime" class="form__label">毕业时间:</label>
-												<input name="endTime" id="endTime" th:value="${resume?.endTime}" type="text" class="form__input3" placeholder="2021.07">
-											</div>
-										</div>
-
-										<div class="col-5 col-lg-3-1">
-											<div class="form_group" style="margin-right: 0;">
-												<label for="email" class="form__label">邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱：</label>
-												<input name="email" id="email"  th:value="${resume?.email}" type="text" class="form__input3" placeholder="1269999999@qq.com">
-											</div>
-										</div>
-
-										<div>
-											<div>
-												<label for="phone" class="form__label">&nbsp;&nbsp;&nbsp;&nbsp;联系电话:</label>
-												<input name="phone" id="phone" th:value="${resume?.phone}" type="text" class="form__input3" placeholder="15570000000">
-											</div>
-										</div>
-										<div class="col-12 col-lg-6-1">
-											<div class="form_group">
-												<label for="address" class="form__label">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址:</label>
-												<input name="address" id="address"  th:value="${resume?.address}" type="text" class="form__input3" placeholder="福建省厦门市思明区软件园二期观日路4号">
-											</div>
-										</div>
-
-										<div class="col-12 col-lg-6-1">
-											<div class="form_group">
-												<label for="skills" class="form__label">专业技能</label>
-												<textarea name="skills" id="skills" th:value="${resume?.skills}" class="form__textarea" placeholder="专业技能"></textarea>
-											</div>
-										</div>
-									<div class="col-12 col-lg-6-1">
-										<div class="form_group">
-											<label for="awards" class="form__label">奖&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;项:</label>
-											<textarea name="awards" id="awards" th:value="${resume?.awards}" class="form__textarea" placeholder="所获奖项"></textarea>
-										</div>
-									</div>
-									<div class="col-12 col-lg-6-1">
-										<div class="form_group">
-											<label for="experience" class="form__label">项目经历:</label>
-											<textarea name="experience" id="experience" th:value="${resume?.experience}" class="form__textarea" placeholder="项目介绍"></textarea>
-										</div>
-									</div>
-									<div class="col-12 col-lg-6-1">
-										<div class="form_group">
-											<label for="introduce" class="form__label">自我评价</label>
-											<textarea name="introduce" id="introduce" th:value="${resume?.introduce}" class="form__textarea" placeholder="评价内容"></textarea>
-										</div>
-									</div>
-									<div class="col-12">
-										<button class="form__btn" type="button" onclick="submit()"><span>保存</span></button>
-									</div>
-								  </div>
-							</div>
-						</div>
-					</div>
-				</div>
-				</div>
-			</div>
-		</main>
+                                <input type="text" name="userId" id="userId" hidden="hidden"
+                                       th:value="${resume?.userId}">
 
 
-		<script type="text/javascript">
-			function submit() {
-				$.ajax({
-					type:"post",
-					url:"/saveresume",
-					data:{
-						name:$("#name").val,
-						sex:$("#sex").val,
-						birth:$("#birth").val,
-						school:$("#school").val,
-						address:$("#address").val,
-						endTime:$("#endTime").val,
-						skills:$("#skills").val,
-						phone:$("#phone").val,
-						email:$("#email").val,
-						introduce:$("#introduce").val,
-						experience:$("#experience").val,
-						awards:$("#awards").val,
-						major:$("#major").val,
-						education:$("#education").val,
-						userId:$("#userId").val
-					},
-					success:function (data) {
-						alert("保存成功！");
-					}
-				})
-			}
-		</script>
+                                <div class="col-2 col-lg-3-1">
+                                    <div id="preview">
+                                        <img id="imghead" title="点击上传头像" border="0" src="img/user.svg" style="position: absolute;cursor:pointer;width: 7vw;height: 11vh;top: 2vh;right: 6vw;">
+                                    </div>
+                                    <input id="previewImg" name="file" type="file" style="display:none; font-size: 13px; position: absolute; left: -4vw;top: 13vh;" >
+                                </div>
 
-	</body>
+                                <div class="col-5 col-lg-3-1">
+                                    <div class="form_group">
+                                        <label for="birth" class="form__label">出生年月:</label>
+                                        <input name="birth" id="birth" th:value="${resume?.birth}" type="text"
+                                               class="form__input3" placeholder="2020.01.01">
+                                    </div>
+                                </div>
+
+                                <div class="col-4 col-lg-3-1">
+                                    <div class="form_group">
+                                        <label for="school" class="form__label">毕业院校:</label>
+                                        <input name="school" id="school" th:value="${resume?.school}" type="text"
+                                               class="form__input3" placeholder="赣南师范大学">
+                                    </div>
+                                </div>
+                                <div class="col-5 col-lg-3-1">
+                                    <div class="form_group">
+                                        <label for="major" class="form__label">学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;历:</label>
+                                        <input name="major" id="major" th:value="${resume?.major}" type="text"
+                                               class="form__input3" placeholder="本科">
+                                    </div>
+                                </div>
+                                <div class="col-4 col-lg-3-1">
+                                    <div class="form_group">
+                                        <label for="endTime" class="form__label">毕业时间:</label>
+                                        <input name="endTime" id="endTime" th:value="${resume?.endTime}" type="text"
+                                               class="form__input3" placeholder="2021.07">
+                                    </div>
+                                </div>
+
+                                <div class="col-5 col-lg-3-1">
+                                    <div class="form_group" style="margin-right: 0;">
+                                        <label for="email" class="form__label">邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱：</label>
+                                        <input name="email" id="email" th:value="${resume?.email}" type="text"
+                                               class="form__input3" placeholder="1269999999@qq.com">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div>
+                                        <label for="phone" class="form__label">&nbsp;&nbsp;&nbsp;&nbsp;联系电话:</label>
+                                        <input name="phone" id="phone" th:value="${resume?.phone}" type="text"
+                                               class="form__input3" placeholder="15570000000">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-6-1">
+                                    <div class="form_group">
+                                        <label for="address" class="form__label">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址:</label>
+                                        <input name="address" id="address" th:value="${resume?.address}" type="text"
+                                               class="form__input3" placeholder="福建省厦门市思明区软件园二期观日路4号">
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-lg-6-1">
+                                    <div class="form_group">
+                                        <label for="skills" class="form__label">专业技能</label>
+                                        <textarea name="skills" id="skills" th:value="${resume?.skills}"
+                                                  class="form__textarea" placeholder="专业技能"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-6-1">
+                                    <div class="form_group">
+                                        <label for="awards" class="form__label">奖&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;项:</label>
+                                        <textarea name="awards" id="awards" th:value="${resume?.awards}"
+                                                  class="form__textarea" placeholder="所获奖项"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-6-1">
+                                    <div class="form_group">
+                                        <label for="experience" class="form__label">项目经历:</label>
+                                        <textarea name="experience" id="experience" th:value="${resume?.experience}"
+                                                  class="form__textarea" placeholder="项目介绍"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-6-1">
+                                    <div class="form_group">
+                                        <label for="introduce" class="form__label">自我评价</label>
+                                        <textarea name="introduce" id="introduce" th:value="${resume?.introduce}"
+                                                  class="form__textarea" placeholder="评价内容"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <input type="text" hidden="hidden" value="1">
+                                    <button class="form__btn" type="submit"><span>保存</span></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</main>
+<script>
+	$(document).ready(function(){
+		$('#imghead').click(function(){
+			$('#previewImg').click();
+		});
+	});
+
+	$(function(){
+	    $("#previewImg").change(function(){
+                var file=$("#previewImg").get(0).files[0];//获取jQuery对象,转为数组,取第一个元素
+                var reader = new FileReader();//创建读取文件的对象
+                reader.readAsDataURL(file);//读取文件
+                reader.onload=function(e){//读取成功后执行的方法函数
+                    alert(e);
+                    $("#imghead").get(0).src=e.target.result;
+                }
+        });
+    });
+
+</script>
+
+
+</body>
 </html>

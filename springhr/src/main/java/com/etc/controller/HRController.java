@@ -38,9 +38,10 @@ public class HRController {
     //验证注册账号是否已存在
     @RequestMapping("/findHrByPhone")
     @ResponseBody
-    Map findHrByPhone(@PathVariable String phone){
+    Map findHrByPhone(String phone){
         Map<String,Object> map=new HashMap<>();
         HR hr=hrService.findHrByPhone(phone);
+        System.out.println(hr);
         if(hr!=null) {
             map.put("msg","success");
             return map;
