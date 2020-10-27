@@ -1,12 +1,15 @@
 package com.etc.controller;
 
+import com.etc.entity.HR;
 import com.etc.entity.Message;
 import com.etc.service.MessageService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -17,18 +20,32 @@ public class MessageController {
 
     //应聘人查看自己面试结果
     @RequestMapping("findById")
-    @ResponseBody
-    public List<Message> findById(int id){
+//    @ResponseBody
+    public ModelAndView findById(int id){
         List<Message> list = messageService.findAllByToId(id);
-        System.out.println(list);
-        return list;
+        ModelAndView mv=new ModelAndView("returnNotice");
+        mv.addObject("list",list);
+        return mv;
     }
 
     //添加面试通知信息
+    @RequestMapping("tianjia")
+    public ModelAndView tianjia(){
+        ModelAndView mv = new ModelAndView("interviewNotice");
+        return mv;
+    }
+
+    //保存面试通知信息
     @RequestMapping("saveMessage")
     @ResponseBody
-    public void saveMessage(Message message){
+    public void saveMessage(Message message, HttpSession session){
         message.setReadState("0");
+        message.setTitle("面试通知");
+//        HR hr = (HR)session.getAttribute("hr");
+        HR hr = new HR();
+        hr.setId(2);
+        message.setHr(hr);
+        System.out.println(message);
         messageService.saveMessage(message);
     }
 

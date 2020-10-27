@@ -1,14 +1,18 @@
 package com.etc.entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 @Table(name = "hr")
+@Data
 public class HR implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
     @Column(name = "name")
     private String name;
@@ -22,8 +26,15 @@ public class HR implements Serializable {
     private String nickName;
     @Column(name="password")
     private String password;
-    @Column(name="compentId")
-    private String compentId;
+
+
+//    @Column(name="compentId")
+//    private String compentId;
+
+    @OneToOne
+    @JoinColumn(name="compentId")
+    private Company company;
+
 
     public int getId() {
         return id;
@@ -81,18 +92,18 @@ public class HR implements Serializable {
         this.password = password;
     }
 
-    public String getCompentId() {
-        return compentId;
-    }
-
-    public void setCompentId(String compentId) {
-        this.compentId = compentId;
-    }
+//    public String getCompentId() {
+//        return compentId;
+//    }
+//
+//    public void setCompentId(String compentId) {
+//        this.compentId = compentId;
+//    }
 
     public HR() {
     }
 
-    public HR(int id, String name, String sex, String phone, String email, String nickName, String password, String compentId) {
+    public HR(int id, String name, String sex, String phone, String email, String nickName, String password) {
         this.id = id;
         this.name = name;
         this.sex = sex;
@@ -100,7 +111,7 @@ public class HR implements Serializable {
         this.email = email;
         this.nickName = nickName;
         this.password = password;
-        this.compentId = compentId;
+//        this.compentId = compentId;
     }
 
     @Override
@@ -113,7 +124,7 @@ public class HR implements Serializable {
                 ", email='" + email + '\'' +
                 ", nickName='" + nickName + '\'' +
                 ", password='" + password + '\'' +
-                ", compentId='" + compentId + '\'' +
+//                ", compentId='" + compentId + '\'' +
                 '}';
     }
 }

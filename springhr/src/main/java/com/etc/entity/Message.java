@@ -3,17 +3,18 @@ package com.etc.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name="message")
 @Data
-public class Message {
+public class Message  implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private int fromId; //发送方id
+//    private int fromId; //发送方id
 
     private int toId;       //接收方id
 
@@ -25,16 +26,21 @@ public class Message {
 
     private String readState;   //消息已读状态
 
+    @OneToOne
+    @JoinColumn(name="fromId")
+    private HR hr;
+
     @Override
-    public String toString() {
+    public String  toString() {
         return "Message{" +
                 "id=" + id +
-                ", fromId=" + fromId +
+//                ", fromId=" + fromId +
                 ", toId=" + toId +
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
                 ", createTime='" + createTime + '\'' +
                 ", readState='" + readState + '\'' +
+                ", hr=" + hr +
                 '}';
     }
 
