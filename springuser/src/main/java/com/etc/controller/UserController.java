@@ -1,19 +1,24 @@
 package com.etc.controller;
 
+import com.etc.entity.Company;
 import com.etc.entity.Resume;
 import com.etc.entity.User;
+import com.etc.feigninters.HRFeignClient;
 import com.etc.service.ResumeService;
 import com.etc.service.UserService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author huge
@@ -27,18 +32,26 @@ public class UserController {
     UserService userService;
     @Resource
     ResumeService resumeService;
+    @Resource
+    HRFeignClient hrFeignClient;
     /*
     * 用户注册
     * */
-    @RequestMapping("/register/{phone}")
-    public User login(@PathVariable String phone){
-        User user = userService.findOneUserByPhone(phone);
+    @RequestMapping("/findUserByPhone")
+    @ResponseBody
+    public Map register(String phone){
+        Map<String,Object> map =new HashMap<>();
+        User user=userService.findOneUserByPhone(phone);
         if (user!=null){
-
-        }else {
-
+            map.put("msg","success");
         }
-        return userService.findOneUserByPhone(phone);
+        return null;
+    }
+    @RequestMapping("/register")
+    String register(User u){
+        System.out.println(u);
+        userService.addUser(u);
+        return "signin";
     }
     /*
     * 用户添加简历
@@ -70,6 +83,10 @@ public class UserController {
         return userService.findAllByPage(pageable);
     }
     /*
+    不用分页查找
+     */
+
+    /*
      * 根据phone分页查找全部用户
      * */
     @RequestMapping("/findusersbyphone")
@@ -91,8 +108,12 @@ public class UserController {
         return "signin";
     }
     @RequestMapping("/login")
-    public String Login(User user){
+    public String Login(User user,Model model){
         if(userService.findOneUser(user)!=null){
+            List<Company> companyList=hrFeignClient.findAllCompany();
+            User u=userService.findOneUser(user);
+            model.addAttribute("user",u);
+            model.addAttribute("listCompany",companyList);
             return "redirect:/index";
         }else{
             return "redirect:/tologin";
@@ -108,6 +129,10 @@ public class UserController {
     public String test(HttpSession session) {
       session.setAttribute("test","hongjiahua");
       return "11111";
+    }
+    @RequestMapping("/toregister")
+    String register(){
+        return "signup";
     }
 
 

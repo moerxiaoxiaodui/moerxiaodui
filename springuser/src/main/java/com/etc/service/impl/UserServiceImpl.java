@@ -55,4 +55,9 @@ public class UserServiceImpl implements UserService {
     public User findOneUser(User user) {
         return userDao.findOneUserByPhoneAndPassword(user.getPhone(),user.getPassword());
     }
+
+    @Override
+    public void addUser(User user) {
+        userDao.save(user);
+    }
 }

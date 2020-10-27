@@ -25,5 +25,7 @@ public interface UserService {
     public void updateUser(User u);
     //通过phone和password查找用户
     public User findOneUser(User user);
+    //增加用户
+    void addUser(User user);
 
 }
