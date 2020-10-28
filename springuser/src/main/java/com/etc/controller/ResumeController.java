@@ -62,7 +62,7 @@ public class ResumeController {
             String imageUrl ="/headpicture/"+ newFileName;
             System.out.println(imageUrl);
             resume.setAvatar(imageUrl);
-            ModelAndView mv = new ModelAndView("redirect:profile");
+            ModelAndView mv = new ModelAndView("redirect:/profile");
             resume.setUserId("1");
             System.out.println(resume);
             resumeService.saveUserResume(resume);
