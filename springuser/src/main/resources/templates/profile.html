@@ -18,32 +18,22 @@
         <div class="row">
             <div class="col-7 col-md-9 col-lg-8 col-xl-9">
                 <div class="header__content">
-                    <a href="index.html" class="header__logo">
+                    <a href="#" class="header__logo">
                         <img th:src="@{/img/logo.svg}" alt="">
                     </a>
                     <ul class="header__nav">
-                        <!-- dropdown -->
                         <li class="header__nav-item">
-                            <a href="index.html" class="header__nav-link">主页</a>
+                            <a class="header__nav-link" th:href="@{/index}"
+                               role="button" id="dropdownMenu公司介绍">主页</a>
                         </li>
-                        <!-- end dropdown -->
 
-                        <!-- dropdown -->
                         <li class="header__nav-item">
-                            <a class="header__nav-link" href="#" role="button"
-                               id="dropdownMenu专案">专案</a>
-                        </li>
-                        <li class="header__nav-item">
-                            <a class="header__nav-link" href="#" role="button" id="dropdownMenu工作"
-                               aria-expanded="false">工作</a>
-                        </li>
-                        <li class="header__nav-item">
-                            <a class="header__nav-link" href="#"
-                               role="button" id="dropdownMenu公司介绍">公司介绍</a>
+                            <a class="header__nav-link" th:href="@{companies}" role="button" id="dropdownMenu工作"
+                               aria-expanded="false">查找工作</a>
                         </li>
                         <li class="header__nav-item">
                             <a class="dropdown-toggle header__nav-link"
-                               th:href="@{/myresume/1}" role="button" id="dropdownMenu个人资料">个人资料</a>
+                               th:href="@{/myresume/}+${session.user.id}" role="button" id="dropdownMenu个人资料">个人资料</a>
                         </li>
                     </ul>
                 </div>
@@ -51,20 +41,20 @@
 
             <div class="col-5 col-md-3 col-lg-4 col-xl-3">
                 <div class="header__content header__content--end">
-                    <a href="messages.html" class="header__messages header__messages--active">
-                        <i class="icon ion-ios-mail"></i>
+                    <a th:href="@{/message/}+${session.user.id}" class="header__messages header__messages--active">
+                        <small>最新消息</small><i class="icon ion-ios-mail"></i>
                     </a>
                     <div class="header__profile">
                         <a class="dropdown-toggle header__profile-btn" href="#" role="button" id="dropdownMenuProfile"
                            data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">
-                            <img th:src="@{/img/user5.jpg}" alt="">
-                            <span th:text="${User?.name}"></span>
+                            <img  th:src="${(resume.avatar !=null) ? resume.avatar : '/img/user.svg'  }" alt="">
+                            <span th:text="${resume?.name}"></span>
                         </a>
 
                         <ul class="dropdown-menu dropdown-menu-right header__dropdown-menu header__dropdown-menu--right"
                             aria-labelledby="dropdownMenuProfile">
-                            <li><a href="/"><i class="icon ion-ios-exit"></i> Logout</a></li>
+                            <li><a th:href="@{/logout}"><i class="icon ion-ios-exit"></i> 退出登录</a></li>
                         </ul>
                     </div>
                 </div>
@@ -94,11 +84,9 @@
 
                                 <div class="col-5 col-lg-3-1">
                                     <div class="form_group">
-                                        <label for="name" class="form__label">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名
-                                            :</label>
+                                        <label for="name" class="form__label">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名 :</label>
                                         <input name="name" id="name" th:value="${resume?.name}" type="text"
                                                class="form__input3" placeholder="姓名">
-
                                     </div>
                                 </div>
 
@@ -133,7 +121,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-4 col-lg-3-1">
+                                <div class="col-5 col-lg-3-1">
                                     <div class="form_group">
                                         <label for="school" class="form__label">毕业院校:</label>
                                         <input name="school" id="school" th:value="${resume?.school}" type="text"
@@ -142,12 +130,12 @@
                                 </div>
                                 <div class="col-5 col-lg-3-1">
                                     <div class="form_group">
-                                        <label for="major" class="form__label">学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;历:</label>
+                                        <label for="major" class="form__label">专&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;业:</label>
                                         <input name="major" id="major" th:value="${resume?.major}" type="text"
-                                               class="form__input3" placeholder="本科">
+                                               class="form__input3" placeholder="软件工程">
                                     </div>
                                 </div>
-                                <div class="col-4 col-lg-3-1">
+                                <div class="col-5 col-lg-3-1">
                                     <div class="form_group">
                                         <label for="endTime" class="form__label">毕业时间:</label>
                                         <input name="endTime" id="endTime" th:value="${resume?.endTime}" type="text"
@@ -170,13 +158,22 @@
                                                class="form__input3" placeholder="15570000000">
                                     </div>
                                 </div>
-                                <div class="col-12 col-lg-6-1">
+                                <div class="col-5 col-lg-6-1">
+                                    <div class="form_group">
+                                        <label for="education" class="form__label">学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;历:</label>
+                                        <input name="education" id="education" th:value="${resume?.education}" type="text"
+                                               class="form__input3" placeholder="本科">
+                                    </div>
+                                </div>
+
+                                <div class="col-6 col-lg-6-1">
                                     <div class="form_group">
                                         <label for="address" class="form__label">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址:</label>
                                         <input name="address" id="address" th:value="${resume?.address}" type="text"
                                                class="form__input3" placeholder="福建省厦门市思明区软件园二期观日路4号">
                                     </div>
                                 </div>
+
 
                                 <div class="col-12 col-lg-6-1">
                                     <div class="form_group">
@@ -218,6 +215,9 @@
     </div>
     </div>
 </main>
+<script th:src="@{/js/jquery-3.4.1.min.js}"></script>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/js/main.js}"></script>
 <script>
     $(document).ready(function () {
         $('#imghead').click(function () {

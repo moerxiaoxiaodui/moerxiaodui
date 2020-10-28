@@ -52,12 +52,25 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User findOneUserbyid(Integer userid) {
+        return userDao.findOneUserByUserId(userid);
+    }
+
+    @Override
     public User findOneUser(User user) {
         return userDao.findOneUserByPhoneAndPassword(user.getPhone(),user.getPassword());
     }
 
+
+
+
     @Override
     public void addUser(User user) {
         userDao.save(user);
+    }
+
+    @Override
+    public void deleteUserByphone(String phone) {
+        userDao.deleteByPhone(phone);
     }
 }

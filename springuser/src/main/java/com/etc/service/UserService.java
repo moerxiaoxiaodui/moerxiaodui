@@ -24,8 +24,13 @@ public interface UserService {
     //修改用户
     public void updateUser(User u);
     //通过phone和password查找用户
+
+    public User findOneUserbyid(Integer userid);
+
     public User findOneUser(User user);
     //增加用户
     void addUser(User user);
+
+    public void deleteUserByphone(String phone);
 
 }

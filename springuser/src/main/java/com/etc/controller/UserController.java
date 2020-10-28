@@ -27,7 +27,8 @@ import java.util.Map;
 @Controller
 /*@RequestMapping("/user")*/
 @CrossOrigin("*") //解决跨域问题
-public class UserController {
+public class
+UserController {
     @Resource
     UserService userService;
     @Resource
@@ -61,7 +62,7 @@ public class UserController {
         Resume resume = new Resume();
         resume.setId(1);
         resume.setName("dawa");
-        resume.setUserId("1");
+        resume.setUserId(1);
         System.out.println(resume);
         resumeService.saveUserResume(resume);
     }
@@ -108,21 +109,32 @@ public class UserController {
         return "signin";
     }
     @RequestMapping("/login")
-    public String Login(User user,Model model){
+    public ModelAndView Login(User user,HttpSession session){
         if(userService.findOneUser(user)!=null){
-            List<Company> companyList=hrFeignClient.findAllCompany();
+           // List<Company> companyList=hrFeignClient.findAllCompany();
             User u=userService.findOneUser(user);
-            model.addAttribute("user",u);
-            model.addAttribute("listCompany",companyList);
-            return "redirect:/index";
+            Resume resume=resumeService.findByUserId(u.getId());
+            System.out.println(resume);
+            ModelAndView mv=new ModelAndView("index");
+            mv.addObject("user",u);
+            session.setAttribute("user",u);
+            session.setAttribute("resume",resume);
+            mv.addObject("resume",resume);
+            System.out.println(u);
+           // model.addAttribute("listCompany",companyList);
+            return mv;
         }else{
-            return "redirect:/tologin";
+            ModelAndView mv=new ModelAndView("redirect:/tologin");
+            return mv;
         }
     }
-    @RequestMapping("/index")
-    public String index(){
-        return "index";
+
+    @RequestMapping("/deletebyphone")
+    @ResponseBody
+    public void delete(String phone){
+        userService.deleteUserByphone(phone);
     }
+
 
     @RequestMapping("/test2")
     @ResponseBody

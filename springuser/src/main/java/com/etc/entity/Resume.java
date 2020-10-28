@@ -48,12 +48,12 @@ public class Resume implements Serializable {
     @Column(name = "education")
     String education;
     @Column(name = "userId")
-    String userId;
+    Integer userId;
 
     public Resume() {
     }
 
-    public Resume(String name, String sex, String birth, String school, String address, String endTime, String skills, String phone, String email, String introduce, String experience, String awards, String avatar, String major, String education, String userId) {
+    public Resume(String name, String sex, String birth, String school, String address, String endTime, String skills, String phone, String email, String introduce, String experience, String awards, String avatar, String major, String education, Integer userId) {
         this.name = name;
         this.sex = sex;
         this.birth = birth;
@@ -200,11 +200,11 @@ public class Resume implements Serializable {
         this.education = education;
     }
 
-    public String getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 

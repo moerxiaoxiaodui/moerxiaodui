@@ -32,8 +32,34 @@ public class ResumeController {
     @Resource
     private UserService userService;
 
+
+    @RequestMapping("/index")
+    public String index(){
+        return "index";
+    }
+
+    @RequestMapping("/message/{userId}")
+    public ModelAndView message(@PathVariable Integer userId){
+        User u=userService.findOneUserbyid(userId);
+        System.out.println(u);
+        ModelAndView mv = new ModelAndView("returnNotice");
+        if (u!=null) {
+            mv.addObject("user",u);
+        }
+        else {
+            mv.setViewName("index");
+        }
+        return mv;
+    }
+    @RequestMapping("/logout")
+    public String logout(){
+        return "signin";
+    }
+
+
+
     @RequestMapping("/myresume/{userId}")
-    public ModelAndView resume(@PathVariable String userId) {
+    public ModelAndView resume(@PathVariable Integer userId) {
         ModelAndView mv = new ModelAndView("profile");
         Resume resume=resumeService.findByUserId(userId);
         mv.addObject("resume",resume);
@@ -43,8 +69,11 @@ public class ResumeController {
     }
 
 
+
+
     @RequestMapping("/saveresume")
     public ModelAndView saveresume(HttpServletRequest request, @RequestParam("file") MultipartFile file,Resume resume) throws IOException {
+        System.out.println(resume);
         if (!file.isEmpty()) { //如果文件不为空，写入上传路径
             String p= request.getSession().getServletContext().getRealPath("/images/upload"); //上传文件路径
             String path = new String("springuser/src/main/resources/static/headpicture/");
@@ -62,18 +91,20 @@ public class ResumeController {
             String imageUrl ="/headpicture/"+ newFileName;
             System.out.println(imageUrl);
             resume.setAvatar(imageUrl);
-            ModelAndView mv = new ModelAndView("redirect:/profile");
-            resume.setUserId("1");
+            ModelAndView mv = new ModelAndView("redirect:/myresume/"+"1");
+            resume.setUserId(1);
             System.out.println(resume);
             resumeService.saveUserResume(resume);
             mv.addObject("resume", resume);
-            mv.addObject("message","上传成功");
             return mv;
         }
         else{
-           ModelAndView mv=new ModelAndView("profile");
-           mv.addObject("message","未选择图片");
-           return mv;
+            ModelAndView mv = new ModelAndView("redirect:/myresume/"+"1");
+            resume.setUserId(1);
+            System.out.println(resume);
+            resumeService.saveUserResume(resume);
+            mv.addObject("resume", resume);
+            return mv;
         }
     }
 }

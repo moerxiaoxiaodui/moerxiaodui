@@ -22,7 +22,7 @@ public class ResumeServiceImpl implements ResumeService {
     }
 
     @Override
-    public Resume findByUserId(String UserId) {
+    public Resume findByUserId(Integer UserId) {
         return resumeDao.findAllByuserId(UserId);
     }
 }
