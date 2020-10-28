@@ -38,7 +38,7 @@ public class ResumeController {
         return "index";
     }
 
-    @RequestMapping("/message/{userId}")
+    @RequestMapping("message")
     public ModelAndView message(@PathVariable Integer userId){
         User u=userService.findOneUserbyid(userId);
         System.out.println(u);

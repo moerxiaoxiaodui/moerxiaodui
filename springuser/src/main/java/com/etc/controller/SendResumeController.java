@@ -17,7 +17,6 @@ import javax.servlet.http.HttpSession;
  * @date 2020/10/24 - 9:51
  */
 @Controller
-@RequestMapping("/sendresume")
 public class SendResumeController {
 
     @Resource
@@ -27,8 +26,9 @@ public class SendResumeController {
     @Resource
     private ResumeService resumeService;
 
-    @RequestMapping("/addSendResume")
+    @RequestMapping("addSendResume")
     public ModelAndView addSendResume(int id, HttpSession session){
+        System.out.println("我进了addSendresume");
         Recruit recruit = recruitService.findById(id);
         SendResume sendResume = new SendResume();
         sendResume.setJob(recruit.getJob());

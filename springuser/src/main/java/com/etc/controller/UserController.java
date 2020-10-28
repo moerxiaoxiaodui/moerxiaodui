@@ -3,7 +3,6 @@ package com.etc.controller;
 import com.etc.entity.Company;
 import com.etc.entity.Resume;
 import com.etc.entity.User;
-import com.etc.feigninters.HRFeignClient;
 import com.etc.service.ResumeService;
 import com.etc.service.UserService;
 import org.springframework.data.domain.Page;
@@ -33,8 +32,6 @@ UserController {
     UserService userService;
     @Resource
     ResumeService resumeService;
-    @Resource
-    HRFeignClient hrFeignClient;
     /*
     * 用户注册
     * */
