@@ -63,5 +63,14 @@ public class HRController {
         return mv;
     }
 
+    @RequestMapping("toHrLogin")
+    public String toLogin(){
+        return "signin";
+    }
+
+    @RequestMapping("toHrRegist")
+    public String toRegist(){
+        return "signup";
+    }
 
 }

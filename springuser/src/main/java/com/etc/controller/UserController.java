@@ -3,7 +3,6 @@ package com.etc.controller;
 import com.etc.entity.Company;
 import com.etc.entity.Resume;
 import com.etc.entity.User;
-import com.etc.feigninters.HRFeignClient;
 import com.etc.service.ResumeService;
 import com.etc.service.UserService;
 import org.springframework.data.domain.Page;
@@ -12,7 +11,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
@@ -32,8 +30,6 @@ public class UserController {
     UserService userService;
     @Resource
     ResumeService resumeService;
-    @Resource
-    HRFeignClient hrFeignClient;
     /*
     * 用户注册
     * */
@@ -107,18 +103,7 @@ public class UserController {
     public String toLogin(){
         return "signin";
     }
-    @RequestMapping("/login")
-    public String Login(User user,Model model){
-        if(userService.findOneUser(user)!=null){
-            List<Company> companyList=hrFeignClient.findAllCompany();
-            User u=userService.findOneUser(user);
-            model.addAttribute("user",u);
-            model.addAttribute("listCompany",companyList);
-            return "redirect:/index";
-        }else{
-            return "redirect:/tologin";
-        }
-    }
+
     @RequestMapping("/index")
     public String index(){
         return "index";

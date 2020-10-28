@@ -10,5 +10,5 @@ public interface ResumeService {
     //用户添加简历
     public void saveUserResume(Resume resume);
 
-    public Resume findByUserId(String UserId);
+    public Resume findByUserId(int UserId);
 }

@@ -13,5 +13,5 @@ import java.io.Serializable;
  */
 public interface ResumeDao extends JpaRepository<Resume,Integer>, JpaSpecificationExecutor<Resume>, Serializable {
     @Query("from Resume where userId= ?1")
-   public Resume findAllByuserId(String userId);
+   public Resume findAllByuserId(int userId);
 }

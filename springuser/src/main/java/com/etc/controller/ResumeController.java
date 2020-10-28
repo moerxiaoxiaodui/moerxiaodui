@@ -33,7 +33,7 @@ public class ResumeController {
     private UserService userService;
 
     @RequestMapping("/myresume/{userId}")
-    public ModelAndView resume(@PathVariable String userId) {
+    public ModelAndView resume(@PathVariable int userId) {
         ModelAndView mv = new ModelAndView("profile");
         Resume resume=resumeService.findByUserId(userId);
         mv.addObject("resume",resume);
