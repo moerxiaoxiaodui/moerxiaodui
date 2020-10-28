@@ -3,82 +3,68 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-	<!-- CSS -->
-	<link rel="stylesheet" href="css/bootstrap-reboot.min.css">
-	<link rel="stylesheet" href="css/bootstrap-grid.min.css">
-	<link rel="stylesheet" href="css/owl.carousel.min.css">
-	<link rel="stylesheet" href="css/nouislider.min.css">
-	<link rel="stylesheet" href="css/select2.min.css">
-	<link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
-	<link rel="stylesheet" href="css/ionicons.min.css">
-	<link rel="stylesheet" href="css/main.css">
-
-	<!-- Favicons -->
-	<link rel="icon" type="image/png" href="icon/favicon-32x32.png" sizes="32x32">
-	<link rel="apple-touch-icon" href="icon/favicon-32x32.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="icon/apple-touch-icon-72x72.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="icon/apple-touch-icon-114x114.png">
-	<link rel="apple-touch-icon" sizes="144x144" href="icon/apple-touch-icon-144x144.png">
-
-	<meta name="description" content="">
-	<meta name="keywords" content="">
-	<meta name="author" content="Dmitry Volkov">
+	<link th:href="@{/css/bootstrap-reboot.min.css}" rel="stylesheet"/>
+	<link th:href="@{/css/bootstrap-grid.min.css}" rel="stylesheet"/>
+	<link th:href="@{/css/ionicons.min.css}" rel="stylesheet"/>
+	<link th:href="@{/css/main.css}" rel="stylesheet"/>
+	<script th:src="@{/js/jquery-3.4.1.min.js}"></script>
+	<script th:src="@{/js/jquery-3.4.1.min.js}"></script>
+	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+	<script th:src="@{/js/main.js}"></script>
 	<title>iJ – Job Board & Freelance Services Marketplace HTML Template</title>
 </head>
 
 <body>
-<!-- header -->
 <header class="header">
-    <div class="container">
-        <div class="row">
-            <div class="col-7 col-md-9 col-lg-8 col-xl-9">
-                <div class="header__content">
-                    <a href="#" class="header__logo">
-                        <img src="img/logo.svg" alt="">
-                    </a>
-                    <ul class="header__nav">
+	<div class="container">
+		<div class="row">
+			<div class="col-7 col-md-9 col-lg-8 col-xl-9">
+				<div class="header__content">
+					<a href="#" class="header__logo">
+						<img src="img/logo.svg" alt="">
+					</a>
+					<ul class="header__nav">
 
-                        <li class="header__nav-item">
-                            <a class="header__nav-link" th:href="@{/index}"
-                               role="button" id="dropdownMenu公司介绍">主页</a>
-                        </li>
+						<li class="header__nav-item">
+							<a class="header__nav-link" th:href="@{/index}"
+							   role="button" id="dropdownMenu公司介绍">主页</a>
+						</li>
 
-                        <li class="header__nav-item">
-                            <a class="header__nav-link" href="findRecruit" role="button" id="dropdownMenu工作"
-                               aria-expanded="false">查找工作</a>
-                        </li>
+						<li class="header__nav-item">
+							<a class="header__nav-link" href="findRecruit" role="button" id="dropdownMenu工作"
+							   aria-expanded="false">查找工作</a>
+						</li>
 
-                        <li class="header__nav-item">
-                            <a class="dropdown-toggle header__nav-link"
-                               th:href="@{/myresume/}+${session.user.id}" role="button" id="dropdownMenu个人资料">个人简历</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+						<li class="header__nav-item">
+							<a class="dropdown-toggle header__nav-link"
+							   th:href="@{/myresume/}+${session.user.id}" role="button" id="dropdownMenu个人资料">个人简历</a>
+						</li>
+					</ul>
+				</div>
+			</div>
 
-            <div class="col-5 col-md-3 col-lg-4 col-xl-3">
-                <div class="header__content header__content--end">
-                    <a th:href="@{/message/}+${session.user.id}" class="header__messages header__messages--active">
-                        <small>最新消息</small><i class="icon ion-ios-mail"></i>
-                    </a>
-                    <div class="header__profile">
-                        <a class="dropdown-toggle header__profile-btn" href="#" role="button" id="dropdownMenuProfile"
-                           data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false">
-                            <img  th:src="${(session.user.avatar !=null) ? session.user.avatar : '/img/user.svg'  }" alt="">
-                            <span th:text="${user?.name}"></span>
-                        </a>
+			<div class="col-5 col-md-3 col-lg-4 col-xl-3">
+				<div class="header__content header__content--end">
+					<a th:href="@{/message/}+${session.user.id}"  class="header__messages header__messages--active">
+						<small>最新消息</small><i class="icon ion-ios-mail"></i>
+					</a>
+					<div class="header__profile">
+						<a class="dropdown-toggle header__profile-btn" href="#" role="button" id="dropdownMenuProfile"
+						   data-toggle="dropdown"
+						   aria-haspopup="true" aria-expanded="false">
+							<img  th:src="${(session.user.avatar !=null) ? session.user.avatar : '/img/user.svg'  }" alt="">
+							<span th:text="${user?.name}"></span>
+						</a>
 
-                        <ul class="dropdown-menu dropdown-menu-right header__dropdown-menu header__dropdown-menu--right"
-                            aria-labelledby="dropdownMenuProfile">
-                            <li><a th:href="@{/logout}"><i class="icon ion-ios-exit"></i> 退出登录</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+						<ul class="dropdown-menu dropdown-menu-right header__dropdown-menu header__dropdown-menu--right"
+							aria-labelledby="dropdownMenuProfile">
+							<li><a th:href="@{/logout}"><i class="icon ion-ios-exit"></i> 退出登录</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </header>
 
 	<!-- main content -->
