@@ -28,101 +28,87 @@
 </head>
 
 <body>
-	<!-- header -->
-		<header class="header">
-			<div class="container">
-				<div class="row">
-					<div class="col-7 col-md-9 col-lg-8 col-xl-9">
-						<div class="header__content">
-							<!-- header menu btn -->
-							<button class="header__btn" type="button">
-								<span></span>
-								<span></span>
-								<span></span>
-							</button>
-							<!-- end header menu btn -->
+<!-- header -->
+<header class="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-7 col-md-9 col-lg-8 col-xl-9">
+                <div class="header__content">
+                    <!-- header menu btn -->
+                    <button class="header__btn" type="button">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <!-- end header menu btn -->
 
-							<!-- header logo -->
-							<a href="HRindex.html" class="header__logo">
-								<img src="img/logo.svg" alt="">
-							</a>
-							<!-- end header logo -->
+                    <!-- header logo -->
+                    <a href="HRindex.html" class="header__logo">
+                        <img src="img/logo.svg" alt="">
+                    </a>
+                    <!-- end header logo -->
 
-							<!-- header nav -->
-							<ul class="header__nav">
-								<!-- dropdown -->
-								<li class="header__nav-item">
-									<a href="/findchr" class="header__nav-link">主页</a>
-								</li>
-								<!-- end dropdown -->
+                    <!-- header nav -->
+                    <ul class="header__nav">
+                        <!-- dropdown -->
+                        <li class="header__nav-item">
+                            <a href="toHRindex" class="header__nav-link">主页</a>
+                        </li>
+                        <!-- end dropdown -->
 
-								<!-- dropdown -->
-								<li class="header__nav-item">
-									<a class="dropdown-toggle header__nav-link" href="#" role="button" id="dropdownMenu专案" data-toggle="dropdown"
-									 aria-haspopup="true" aria-expanded="false">工作</a>
+                        <!-- dropdown -->
+                        <li class="header__nav-item">
+                            <a class="dropdown-toggle header__nav-link" href="#" role="button" id="dropdownMenu专案" data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">工作</a>
 
-									<ul class="dropdown-menu header__dropdown-menu" aria-labelledby="dropdownMenu专案">
-								
-										<li><a href="add-project.html">发布工作</a></li>
-									</ul>
-								</li>
-								<!-- end dropdown -->
+                            <ul class="dropdown-menu header__dropdown-menu" aria-labelledby="dropdownMenu专案">
 
-	
+                                <li><a href="toAddProkect">发布工作</a></li>
+                            </ul>
+                        </li>
+                        <!-- end dropdown -->
 
-								<!-- dropdown -->
-								<li class="header__nav-item">
-									<a class="dropdown-toggle header__nav-link" href="#" role="button" id="dropdownMenu个人资料" data-toggle="dropdown"
-									 aria-haspopup="true" aria-expanded="false">求职者</a>
+                        <!-- dropdown -->
+                        <li class="header__nav-item">
+                            <a class="dropdown-toggle header__nav-link" href="#" role="button" id="dropdownMenu个人资料" data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">求职信息</a>
 
-									<ul class="dropdown-menu header__dropdown-menu" aria-labelledby="dropdownMenu个人资料">
-										<li><a href="profiles.html">所有求职者</a></li>
-								
-									</ul>
-								</li>
-								<!-- end dropdown -->
-								
-								<!-- dropdown -->
-								<li class="header__nav-item">
-									<a class="dropdown-toggle header__nav-link" href="#" role="button" id="dropdownMenu个人资料" data-toggle="dropdown"
-									 aria-haspopup="true" aria-expanded="false">面试通知</a>
-								
-									<ul class="dropdown-menu header__dropdown-menu" aria-labelledby="dropdownMenu个人资料">
-										<li><a href="interviewNotice.html">查看面试通知</a></li>
-								
-									</ul>
-								</li>
-								<!-- end dropdown -->
-								
-							</ul>
-							<!-- end header nav -->
+                            <ul class="dropdown-menu header__dropdown-menu" aria-labelledby="dropdownMenu个人资料">
+                                <li><a href="toMessages">查看求职简历</a></li>
 
-							
-						</div>
-					</div>
+                            </ul>
+                        </li>
+                        <!-- end dropdown -->
 
-					<div class="col-5 col-md-3 col-lg-4 col-xl-3">
-						<div class="header__content header__content--end">
-							<a href="messages.html" class="header__messages header__messages--active">
-								<i class="icon ion-ios-mail"></i>
-							</a>
+                    </ul>
+                    <!-- end header nav -->
 
-							
 
-							<div class="header__profile">
-								<a class="dropdown-toggle header__profile-btn" href="#" role="button" id="dropdownMenuProfile" data-toggle="dropdown"
-								 aria-haspopup="true" aria-expanded="false">
-									<img src="img/user5.jpg" alt="">
-									<span>John Doe</span>
-								</a>
+                </div>
+            </div>
 
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</header>
-		<!-- end header -->
+            <div class="col-5 col-md-3 col-lg-4 col-xl-3">
+                <div class="header__content header__content--end">
+                    <a href="messages.html" class="header__messages header__messages--active">
+                        <i class="icon ion-ios-mail"></i>
+                    </a>
+
+
+
+                    <div class="header__profile">
+                        <a class="dropdown-toggle header__profile-btn" href="#" role="button" id="dropdownMenuProfile" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                            <img src="img/user5.jpg" alt="">
+                            <span>John Doe</span>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- end header -->
 	<!-- main content -->
 	<main class="main main--breadcrumb">
 		<!-- breadcrumb -->
@@ -144,7 +130,7 @@
 			<div class="row">
 				<div class="col-12 col-md-7 col-lg-8 col-xl-9">
 					<!-- form -->
-					<form action="/addrecruit" class="form">
+					<form action="addRecruit" class="form">
 						<div class="row">
 							<div class="col-12">
 								<h2 class="form__title">新工作</h2>
@@ -215,7 +201,7 @@
 							</div>
 							<div class="sidebox__faq">
 								<h3>我如何找到工作的自由职业者？</h3>
-								<p5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在Workland上发布工作将使您的工作在最合格的自由职业者和代理机构面前。然后，您将获得该职位的申请，并附上申请人的详细信息以及最适合该职位的原因。<br>您也可以搜索自由职业者并邀请他们申请。 <p5>
+								<p5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在Workland上发布工作将使您的工作在最合格的自由职业者和代理机构面前。然后，您将获得该职位的申请，并附上申请人的详细信息以及最适合该职位的原因。<br>您也可以搜索自由职业者并邀请他们申请。 </p5>
 							</div>
 							
 						</div>

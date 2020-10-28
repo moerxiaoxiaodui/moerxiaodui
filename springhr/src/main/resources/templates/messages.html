@@ -122,40 +122,34 @@
 
 					<div class="col-12 col-md-7 col-lg-8 col-xl-8">
 						<center>
-							<h2>收到的求职回馈</h2>
+							<h2>收到以下求职者简历</h2>
 						</center>
 						<br><br>
 
-						<div th:each=" message:${list}" >
+						<div th:each="sendresume:${list}" >
 						<!-- post -->
 						<div class="post">
 							<div class="post__head">
 								<a href="#" class="post__head-img">
 									<img src="img/user8.jpg" alt="">
 								</a>
-								<div class="post__head-title">
-									<h5><a href="#" th:text="${message.title}">面试通知</a></h5>
-								</div>
 								<div class="post__message" style="max-width:30vw;overflow: hidden;">
-									&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp收到
-									&nbsp&nbsp&nbsp&nbsp<p9 th:text="${message.hr.company.name}">公司名称</p9>
-									&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp的回复
+									收到&nbsp&nbsp<p9>[[${sendresume.resume.name}]]</p9>&nbsp&nbsp的&nbsp&nbsp<p9>[[${sendresume.job}]]</p9> &nbsp&nbsp的求职信息
 								</div>
-								<span style="position:absolute;left: 40vw;">查看</span>
+								<a th:href="@{findResumeById(id=${sendresume.resume.user.id})}"><span style="position:absolute;left: 40vw;">查看</span></a>
 							</div>
 							<div>
 								<p style="position: relative;left: 34vw;">2020.01.01</p>
 							</div>
 						</div>
 						<!-- end post -->
-						</div>
+						<div>
+
 
 
 					</div>
 
 					<div class="col-12 col-md-5 col-lg-4 col-xl-2">
-
-
 
 					</div>
 				</div>

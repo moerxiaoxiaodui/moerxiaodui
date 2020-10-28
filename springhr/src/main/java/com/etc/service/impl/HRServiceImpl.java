@@ -8,38 +8,13 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.List;
 import java.util.Optional;
-
 @Service
 public class HRServiceImpl implements HRService {
 
     @Resource
      private HRDao hrDao;
 
-    @Override
-    public List<HR> findAll() {
-        return hrDao.findAll();
+    public HR findByPhoneAndPassword(String phone, String password) {
+        return hrDao.findByPhoneAndPassword(phone,password);
     }
-
-    @Override
-    public HR findHrByPhone(String phone) {
-        return hrDao.findByPhone(phone);
-    }
-
-
-    @Override
-    public HR findHrByPhoneAndPassword(String phone, String password) {
-        return hrDao.findByphoneAndPassword(phone,password);
-    }
-
-    @Override
-    public void addHR(HR hr) {
-        hrDao.save(hr);
-    }
-
-    @Override
-    public void updateHR(HR hr) {
-        hrDao.save(hr);
-    }
-
-
 }

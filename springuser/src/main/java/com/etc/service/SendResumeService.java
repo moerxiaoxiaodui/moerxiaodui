@@ -8,7 +8,7 @@ import com.etc.entity.SendResume;
  * @date 2020/10/24 - 9:48
  */
 public interface SendResumeService {
-    //发送招聘
+    //发送简历
     public void addSendResume(SendResume sendResume);
 
 }
