@@ -13,109 +13,39 @@
 </head>
 
 <body>
-<!-- header -->
 <header class="header">
     <div class="container">
         <div class="row">
             <div class="col-7 col-md-9 col-lg-8 col-xl-9">
                 <div class="header__content">
-                    <!-- header menu btn -->
-                    <button class="header__btn" type="button">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
                     <a href="index.html" class="header__logo">
                         <img th:src="@{/img/logo.svg}" alt="">
                     </a>
-                    <!-- end header logo -->
-
-                    <!-- header nav -->
                     <ul class="header__nav">
                         <!-- dropdown -->
                         <li class="header__nav-item">
-                            <a href="/tologin" class="header__nav-link">主页</a>
+                            <a href="index.html" class="header__nav-link">主页</a>
                         </li>
                         <!-- end dropdown -->
 
                         <!-- dropdown -->
                         <li class="header__nav-item">
-                            <a class="dropdown-toggle header__nav-link" href="#" role="button" id="dropdownMenu专案"
-                               data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false">专案</a>
-
-                            <ul class="dropdown-menu header__dropdown-menu" aria-labelledby="dropdownMenu专案">
-                                <li><a href="project.html">Single project</a></li>
-                                <li><a href="add-project.html">发布项目</a></li>
-                            </ul>
+                            <a class="header__nav-link" href="#" role="button"
+                               id="dropdownMenu专案">专案</a>
                         </li>
                         <li class="header__nav-item">
-                            <a class="dropdown-toggle header__nav-link" href="#" role="button" id="dropdownMenu工作"
-                               data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false">工作</a>
-
-                            <ul class="dropdown-menu header__dropdown-menu" aria-labelledby="dropdownMenu工作">
-                                <li><a href="工作.html">工作</a></li>
-                                <li><a href="job.html">职位详情</a></li>
-                                <li><a href="add-job.html">发布工作</a></li>
-                            </ul>
+                            <a class="header__nav-link" href="#" role="button" id="dropdownMenu工作"
+                               aria-expanded="false">工作</a>
                         </li>
-                        <!-- end dropdown -->
-
-                        <!-- dropdown -->
                         <li class="header__nav-item">
-                            <a class="dropdown-toggle header__nav-link" href="#" role="button" id="dropdownMenu公司介绍"
-                               data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false">公司介绍</a>
-
-                            <ul class="dropdown-menu header__dropdown-menu" aria-labelledby="dropdownMenu公司介绍">
-                                <li><a href="companies.html">公司介绍</a></li>
-                                <li><a href="company.html">公司简介</a></li>
-                            </ul>
+                            <a class="header__nav-link" href="#"
+                               role="button" id="dropdownMenu公司介绍">公司介绍</a>
                         </li>
-                        <!-- end dropdown -->
-
-                        <!-- dropdown -->
                         <li class="header__nav-item">
-                            <a class="dropdown-toggle header__nav-link" href="#" role="button" id="dropdownMenu个人资料"
-                               data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false">个人资料</a>
-
-                            <ul class="dropdown-menu header__dropdown-menu" aria-labelledby="dropdownMenu个人资料">
-                                <li><a href="profiles.html">个人资料</a></li>
-                                <li><a href="profile.html">个人资料</a></li>
-                            </ul>
+                            <a class="dropdown-toggle header__nav-link"
+                               th:href="@{/myresume/1}" role="button" id="dropdownMenu个人资料">个人资料</a>
                         </li>
-                        <!-- end dropdown -->
-
-                        <!-- dropdown -->
-                        <li class="header__nav-item">
-                            <a class="dropdown-toggle header__nav-link" href="#" role="button" id="dropdownMenu页数"
-                               data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false">页数</a>
-
-                            <ul class="dropdown-menu header__dropdown-menu" aria-labelledby="dropdownMenu页数">
-                                <li><a href="messages.html">Messages</a></li>
-                                <li><a href="faq.html">Help Center</a></li>
-                                <li><a href="contacts.html">Contacts</a></li>
-                                <li><a href="privacy.html">Privacy Policy</a></li>
-                                <li><a href="signin.html">Sign In</a></li>
-                                <li><a href="signup.html">Sign Up</a></li>
-                                <li><a href="forgot.html">Forgot password</a></li>
-                            </ul>
-                        </li>
-                        <!-- end dropdown -->
                     </ul>
-                    <!-- end header nav -->
-
-                    <!-- header Search -->
-                    <form action="#" class="header__Search">
-                        <input class="header__Search-input" type="text" placeholder="Search...">
-                        <button class="header__Search-button" type="button">
-                            <i class="icon ion-ios-Search"></i>
-                        </button>
-                    </form>
-                    <!-- end header Search -->
                 </div>
             </div>
 
@@ -124,71 +54,17 @@
                     <a href="messages.html" class="header__messages header__messages--active">
                         <i class="icon ion-ios-mail"></i>
                     </a>
-
-                    <div class="header__notifications">
-                        <a class="dropdown-toggle header__notifications-btn header__notifications-btn--active" href="#"
-                           role="button"
-                           id="dropdownMenuNotifications" data-toggle="dropdown" aria-haspopup="true"
-                           aria-expanded="false">
-                            <i class="icon ion-ios-notifications"></i>
-                        </a>
-
-                        <div class="dropdown-menu dropdown-menu-right header__dropdown-menu header__dropdown-menu--right header__dropdown-menu--ntf"
-                             aria-labelledby="dropdownMenuNotifications">
-                            <div class="header__ntf">
-                                <a href="#" class="header__ntf-img">
-                                    <img src="img/user3.jpg" alt="">
-                                </a>
-                                <h6 class="header__ntf-title">
-                                    <span>我是谁</span> Comment on your project.
-                                </h6>
-                            </div>
-
-                            <div class="header__ntf">
-                                <a href="#" class="header__ntf-img">
-                                    <img src="img/user7.jpg" alt="">
-                                </a>
-                                <h6 class="header__ntf-title">
-                                    <span>Andy Ramos</span> Comment on your project.
-                                </h6>
-                            </div>
-
-                            <div class="header__ntf">
-                                <a href="#" class="header__ntf-img">
-                                    <img src="img/user4.jpg" alt="">
-                                </a>
-                                <h6 class="header__ntf-title">
-                                    <span>Sophia Mendoza</span> Comment on your project.
-                                </h6>
-                            </div>
-
-                            <div class="header__ntf">
-                                <a href="#" class="header__ntf-img">
-                                    <img src="img/user1.jpg" alt="">
-                                </a>
-                                <h6 class="header__ntf-title">
-                                    <span>Tony Young</span> Comment on your project.
-                                </h6>
-                            </div>
-
-                            <a href="#" class="header__ntf-more">查看更多</a>
-                        </div>
-                    </div>
-
                     <div class="header__profile">
                         <a class="dropdown-toggle header__profile-btn" href="#" role="button" id="dropdownMenuProfile"
                            data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">
                             <img th:src="@{/img/user5.jpg}" alt="">
-                            <span>John Doe</span>
+                            <span th:text="${User?.name}"></span>
                         </a>
 
                         <ul class="dropdown-menu dropdown-menu-right header__dropdown-menu header__dropdown-menu--right"
                             aria-labelledby="dropdownMenuProfile">
-                            <li><a href="profile.html"><i class="icon ion-ios-settings"></i> Settings</a></li>
-                            <li><a href="privacy.html"><i class="icon ion-ios-lock"></i> Privacy</a></li>
-                            <li><a href="faq.html"><i class="icon ion-ios-help-buoy"></i> FAQ</a></li>
-                            <li><a href="#"><i class="icon ion-ios-exit"></i> Logout</a></li>
+                            <li><a href="/"><i class="icon ion-ios-exit"></i> Logout</a></li>
                         </ul>
                     </div>
                 </div>
@@ -196,23 +72,6 @@
         </div>
     </div>
 </header>
-<!-- end header -->
-<!-- main content -->
-<main class="main main--breadcrumb">
-    <!-- breadcrumb -->
-    <div class="breadcrumb">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <ul class="breadcrumb__wrap">
-                        <li class="breadcrumb__item"><a href="#">Home</a></li>
-                        <li class="breadcrumb__item breadcrumb__item--active">John Doe</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- end breadcrumb -->
 
     <div class="container">
         <div class="row">
@@ -253,14 +112,14 @@
 
                                 <input type="text" name="userId" id="userId" hidden="hidden"
                                        th:value="${resume?.userId}">
-                                <input type="text" name="message" id="message" hidden="hidden"
-                                       th:value="${message}">
+                                <input type="text" name="id" hidden="hidden"
+                                       th:value="${resume?.id}">
 
                                 <div class="col-2 col-lg-3-1">
                                     <div id="preview">
                                         <img id="imghead" title="点击上传头像" border="0"
                                              th:src="${(resume.avatar !=null) ? resume.avatar : '/img/user.svg'  }"
-                                             style="position: absolute;cursor:pointer;width: 9vw;height: 13vh;top: 2vh;right: 2vw;">
+                                             style="position: absolute;cursor:pointer;width: 8vw;height: 18vh;top: 2vh;right: 2vw;">
                                     </div>
                                     <input id="previewImg" name="file" type="file"
                                            style="display:none; font-size: 13px; position: absolute; left: -4vw;top: 13vh;">
@@ -348,7 +207,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <button class="form__btn" type="button" onclick="submit()"><span>保存</span></button>
+                                    <button class="form__btn" type="submit" ><span>保存</span></button>
                                 </div>
                             </div>
                         </form>
