@@ -4,22 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/bootstrap-reboot.min.css">
-    <link rel="stylesheet" href="css/bootstrap-grid.min.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/nouislider.min.css">
-    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
-    <link rel="stylesheet" href="css/ionicons.min.css">
-    <link rel="stylesheet" href="css/main.css">
-
-    <!-- Favicons -->
-    <link rel="icon" type="image/png" href="icon/favicon-32x32.png" sizes="32x32">
-    <link rel="apple-touch-icon" href="icon/favicon-32x32.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="icon/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="icon/apple-touch-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="icon/apple-touch-icon-144x144.png">
-    <script src="js/jquery-3.4.1.min.js"></script>
+    <link th:href="@{/css/bootstrap-reboot.min.css}" rel="stylesheet"/>
+    <link th:href="@{/css/bootstrap-grid.min.css}" rel="stylesheet"/>
+    <link th:href="@{/css/ionicons.min.css}" rel="stylesheet"/>
+    <link th:href="@{/css/main.css}" rel="stylesheet"/>
+    <script th:src="@{/js/jquery-3.4.1.min.js}"></script>
     <title>iJ – Job Board </title>
 </head>
 
@@ -36,11 +25,8 @@
                         <span></span>
                         <span></span>
                     </button>
-                    <!-- end header menu btn -->
-
-                    <!-- header logo -->
                     <a href="index.html" class="header__logo">
-                        <img src="img/logo.svg" alt="">
+                        <img th:src="@{/img/logo.svg}" alt="">
                     </a>
                     <!-- end header logo -->
 
@@ -48,7 +34,7 @@
                     <ul class="header__nav">
                         <!-- dropdown -->
                         <li class="header__nav-item">
-                            <a href="/myresume" class="header__nav-link">主页</a>
+                            <a href="/tologin" class="header__nav-link">主页</a>
                         </li>
                         <!-- end dropdown -->
 
@@ -63,9 +49,6 @@
                                 <li><a href="add-project.html">发布项目</a></li>
                             </ul>
                         </li>
-                        <!-- end dropdown -->
-
-                        <!-- dropdown -->
                         <li class="header__nav-item">
                             <a class="dropdown-toggle header__nav-link" href="#" role="button" id="dropdownMenu工作"
                                data-toggle="dropdown"
@@ -196,7 +179,7 @@
                         <a class="dropdown-toggle header__profile-btn" href="#" role="button" id="dropdownMenuProfile"
                            data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">
-                            <img src="img/user5.jpg" alt="">
+                            <img th:src="@{/img/user5.jpg}" alt="">
                             <span>John Doe</span>
                         </a>
 
@@ -244,7 +227,7 @@
                     </div>
                     <div class="tab-pane fade show active" id="tab-3" role="tabpanel" aria-labelledby="tab-3">
                         <!-- form -->
-                        <form action="/saveresume" class="form" method="post" enctype="multipart/form-data">
+                        <form action="/saveresume" id="form" class="form" method="post" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col-12">
                                     <h2 class="form__title">编辑简历</h2>
@@ -270,13 +253,17 @@
 
                                 <input type="text" name="userId" id="userId" hidden="hidden"
                                        th:value="${resume?.userId}">
-
+                                <input type="text" name="message" id="message" hidden="hidden"
+                                       th:value="${message}">
 
                                 <div class="col-2 col-lg-3-1">
                                     <div id="preview">
-                                        <img id="imghead" title="点击上传头像" border="0" src="img/user.svg" style="position: absolute;cursor:pointer;width: 7vw;height: 11vh;top: 2vh;right: 6vw;">
+                                        <img id="imghead" title="点击上传头像" border="0"
+                                             th:src="${(resume.avatar !=null) ? resume.avatar : '/img/user.svg'  }"
+                                             style="position: absolute;cursor:pointer;width: 9vw;height: 13vh;top: 2vh;right: 2vw;">
                                     </div>
-                                    <input id="previewImg" name="file" type="file" style="display:none; font-size: 13px; position: absolute; left: -4vw;top: 13vh;" >
+                                    <input id="previewImg" name="file" type="file"
+                                           style="display:none; font-size: 13px; position: absolute; left: -4vw;top: 13vh;">
                                 </div>
 
                                 <div class="col-5 col-lg-3-1">
@@ -335,34 +322,33 @@
                                 <div class="col-12 col-lg-6-1">
                                     <div class="form_group">
                                         <label for="skills" class="form__label">专业技能</label>
-                                        <textarea name="skills" id="skills" th:value="${resume?.skills}"
+                                        <textarea name="skills" id="skills" th:text="${resume?.skills}"
                                                   class="form__textarea" placeholder="专业技能"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-12 col-lg-6-1">
                                     <div class="form_group">
                                         <label for="awards" class="form__label">奖&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;项:</label>
-                                        <textarea name="awards" id="awards" th:value="${resume?.awards}"
+                                        <textarea name="awards" id="awards" th:text="${resume?.awards}"
                                                   class="form__textarea" placeholder="所获奖项"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-12 col-lg-6-1">
                                     <div class="form_group">
                                         <label for="experience" class="form__label">项目经历:</label>
-                                        <textarea name="experience" id="experience" th:value="${resume?.experience}"
+                                        <textarea name="experience" id="experience" th:text="${resume?.experience}"
                                                   class="form__textarea" placeholder="项目介绍"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-12 col-lg-6-1">
                                     <div class="form_group">
                                         <label for="introduce" class="form__label">自我评价</label>
-                                        <textarea name="introduce" id="introduce" th:value="${resume?.introduce}"
+                                        <textarea name="introduce" id="introduce" th:text="${resume?.introduce}"
                                                   class="form__textarea" placeholder="评价内容"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <input type="text" hidden="hidden" value="1">
-                                    <button class="form__btn" type="submit"><span>保存</span></button>
+                                    <button class="form__btn" type="button" onclick="submit()"><span>保存</span></button>
                                 </div>
                             </div>
                         </form>
@@ -374,26 +360,25 @@
     </div>
 </main>
 <script>
-	$(document).ready(function(){
-		$('#imghead').click(function(){
-			$('#previewImg').click();
-		});
-	});
-
-	$(function(){
-	    $("#previewImg").change(function(){
-                var file=$("#previewImg").get(0).files[0];//获取jQuery对象,转为数组,取第一个元素
-                var reader = new FileReader();//创建读取文件的对象
-                reader.readAsDataURL(file);//读取文件
-                reader.onload=function(e){//读取成功后执行的方法函数
-                    alert(e);
-                    $("#imghead").get(0).src=e.target.result;
-                }
+    $(document).ready(function () {
+        $('#imghead').click(function () {
+            $('#previewImg').click();
         });
+
+
     });
 
+    $(function () {
+        $("#previewImg").change(function () {
+            var file = $("#previewImg").get(0).files[0];//获取jQuery对象,转为数组,取第一个元素
+            var reader = new FileReader();//创建读取文件的对象
+            reader.readAsDataURL(file);//读取文件
+            reader.onload = function (e) {//读取成功后执行的方法函数
+                alert("图片加载成功");
+                $("#imghead").get(0).src = e.target.result;
+            }
+        });
+    });
 </script>
-
-
 </body>
 </html>

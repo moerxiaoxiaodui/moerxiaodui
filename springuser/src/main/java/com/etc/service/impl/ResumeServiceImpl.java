@@ -2,6 +2,7 @@ package com.etc.service.impl;
 
 import com.etc.dao.ResumeDao;
 import com.etc.entity.Resume;
+import com.etc.entity.User;
 import com.etc.service.ResumeService;
 import org.springframework.stereotype.Service;
 
@@ -18,5 +19,10 @@ public class ResumeServiceImpl implements ResumeService {
     @Override
     public void saveUserResume(Resume resume) {
         resumeDao.save(resume);
+    }
+
+    @Override
+    public Resume findByUserId(String UserId) {
+        return resumeDao.findAllByuserId(UserId);
     }
 }

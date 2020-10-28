@@ -48,6 +48,22 @@ public class User implements Serializable {
         this.avatar = avatar;
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", phone='" + phone + '\'' +
+                ", password='" + password + '\'' +
+                ", name='" + name + '\'' +
+                ", sex='" + sex + '\'' +
+                ", birth='" + birth + '\'' +
+                ", introduce='" + introduce + '\'' +
+                ", address='" + address + '\'' +
+                ", intentionJob='" + intentionJob + '\'' +
+                ", avatar='" + avatar + '\'' +
+                '}';
+    }
+
     public Integer getId() {
         return id;
     }

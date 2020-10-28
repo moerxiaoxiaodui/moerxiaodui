@@ -1,5 +1,6 @@
 package com.etc.service;
 
+import com.etc.entity.Resume;
 import com.etc.entity.SendResume;
 
 /**
@@ -9,4 +10,5 @@ import com.etc.entity.SendResume;
 public interface SendResumeService {
     //发送招聘
     public void addSendResume(SendResume sendResume);
+
 }

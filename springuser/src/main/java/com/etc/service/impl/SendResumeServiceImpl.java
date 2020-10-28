@@ -1,6 +1,7 @@
 package com.etc.service.impl;
 
 import com.etc.dao.SendResumeDao;
+import com.etc.entity.Resume;
 import com.etc.entity.SendResume;
 import com.etc.service.SendResumeService;
 import org.springframework.stereotype.Service;
@@ -19,4 +20,5 @@ public class SendResumeServiceImpl implements SendResumeService {
     public void addSendResume(SendResume sendResume) {
         sendResumeDao.save(sendResume);
     }
+
 }

@@ -9,4 +9,6 @@ import com.etc.entity.Resume;
 public interface ResumeService {
     //用户添加简历
     public void saveUserResume(Resume resume);
+
+    public Resume findByUserId(String UserId);
 }
