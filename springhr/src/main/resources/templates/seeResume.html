@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- CSS -->
+		<link rel="stylesheet" href="css/bootstrap-reboot.min.css">
+		<link rel="stylesheet" href="css/bootstrap-grid.min.css">
+		<link rel="stylesheet" href="css/owl.carousel.min.css">
+		<link rel="stylesheet" href="css/nouislider.min.css">
+		<link rel="stylesheet" href="css/select2.min.css">
+		<link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+		<link rel="stylesheet" href="css/ionicons.min.css">
+		<link rel="stylesheet" href="css/main.css">
+
+		<!-- Favicons -->
+		<link rel="icon" type="image/png" href="icon/favicon-32x32.png" sizes="32x32">
+		<link rel="apple-touch-icon" href="icon/favicon-32x32.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="icon/apple-touch-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="icon/apple-touch-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="icon/apple-touch-icon-144x144.png">
+
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<meta name="author" content="Dmitry Volkov">
+		<title>iJ – Job Board & Freelance Services Marketplace HTML Template</title>
+	</head>
+
+	<body>
+		<!-- header -->
+		<header class="header">
+			<div class="container">
+				<div class="row">
+					<div class="col-7 col-md-9 col-lg-8 col-xl-9">
+						<div class="header__content">
+							<!-- header menu btn -->
+							<button class="header__btn" type="button">
+								<span></span>
+								<span></span>
+								<span></span>
+							</button>
+							<!-- end header menu btn -->
+		
+							<!-- header logo -->
+							<a href="HRindex.html" class="header__logo">
+								<img src="img/logo.svg" alt="">
+							</a>
+							<!-- end header logo -->
+		
+							<!-- header nav -->
+							<ul class="header__nav">
+								<!-- dropdown -->
+								<li class="header__nav-item">
+									<a href="HRindex.html" class="header__nav-link">主页</a>
+								</li>
+								<!-- end dropdown -->
+		
+								<!-- dropdown -->
+								<li class="header__nav-item">
+									<a class="dropdown-toggle header__nav-link" href="#" role="button" id="dropdownMenu专案" data-toggle="dropdown"
+									 aria-haspopup="true" aria-expanded="false">工作</a>
+		
+									<ul class="dropdown-menu header__dropdown-menu" aria-labelledby="dropdownMenu专案">
+								
+										<li><a href="add-project.html">发布工作</a></li>
+									</ul>
+								</li>
+								<!-- end dropdown -->
+		
+			
+		
+								<!-- dropdown -->
+								<li class="header__nav-item">
+									<a class="dropdown-toggle header__nav-link" href="#" role="button" id="dropdownMenu个人资料" data-toggle="dropdown"
+									 aria-haspopup="true" aria-expanded="false">求职者</a>
+		
+									<ul class="dropdown-menu header__dropdown-menu" aria-labelledby="dropdownMenu个人资料">
+										<li><a href="profiles.html">所有求职者</a></li>
+								
+									</ul>
+								</li>
+								<!-- end dropdown -->
+		
+								
+							</ul>
+							<!-- end header nav -->
+		
+							
+						</div>
+					</div>
+		
+					<div class="col-5 col-md-3 col-lg-4 col-xl-3">
+						<div class="header__content header__content--end">
+							<a href="messages.html" class="header__messages header__messages--active">
+								<i class="icon ion-ios-mail"></i>
+							</a>
+		
+							
+		
+							<div class="header__profile">
+								<a class="dropdown-toggle header__profile-btn" href="#" role="button" id="dropdownMenuProfile" data-toggle="dropdown"
+								 aria-haspopup="true" aria-expanded="false">
+									<img src="img/user5.jpg" alt="">
+									<span>John Doe</span>
+								</a>
+		
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- end header -->
+		<!-- main content -->
+		<main class="main main--breadcrumb">
+			<!-- breadcrumb -->
+			<div class="breadcrumb">
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<ul class="breadcrumb__wrap">
+								<li class="breadcrumb__item"><a href="#">Home</a></li>
+								<li class="breadcrumb__item breadcrumb__item--active">John Doe</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- end breadcrumb -->
+
+			<div class="container">
+				<div class="row">
+					<div class="col-12 col-md-5 col-lg-4 col-xl-2">
+				
+					</div>
+					<div class="col-12 col-md-7 col-lg-8 col-xl-8">
+			
+
+						<div class="tab-content">
+							<!--<div class="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="tab-1">
+								
+							</div>-->
+
+							<div class="tab-pane fade show active" id="tab-2" role="tabpanel" aria-labelledby="tab-2">
+
+							</div>
+
+							<div class="tab-pane fade show active" id="tab-3" role="tabpanel" aria-labelledby="tab-3">
+								<!-- form -->
+								<form action="tianjia" class="form">
+
+									<div class="row">
+										
+										<div class="col-5 col-lg-3-1">
+											<div class="form_group">
+												<label for="login" class="form__label">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名 : 
+												<input name="name" id="email" type="text" class="form__input3" th:value="${resume.name}" readonly="readonly"></label>
+											</div>
+										</div>
+
+										<div class="col-5 col-lg-3-1">
+											<div class="form_group">
+												<label for="email" class="form__label">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别</label>
+												<input name="email" id="email2" type="text" class="form__input3" th:value="${resume.sex}" readonly="readonly">
+											</div>
+										</div>
+									
+										<div class="col-2 col-lg-3-1">
+												<img style="position:absolute;right:3vw;" src="img/user3.jpg" th:src="|img/${resume.avatar}|" alt="">
+											   
+										</div>
+									
+										<div class="col-5 col-lg-3-1">
+											<div class="form_group">
+												<label for="firstname" class="form__label">出生年月:</label>
+												<input name="firstname" id="firstname" type="text" class="form__input3" th:value="${resume.birth}" readonly="readonly">
+											</div>
+										</div>
+
+										<div class="col-5 col-lg-3-1">
+											<div class="form_group">
+												<label for="lastname2" class="form__label">毕业院校:</label>
+												<input name="lastname" id="lastname2" type="text" class="form__input3" th:value="${resume.school}" readonly="readonly" placeholder="赣南师范大学">
+											</div>
+										</div>
+										<div class="col-5 col-lg-3-1">
+											<div class="form_group">
+												<label for="lastname22" class="form__label">学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;历:</label>
+												<input name="lastname" id="lastname22" type="text" class="form__input3" th:value="${resume.education}" readonly="readonly" placeholder="本科">
+											</div>
+										</div>
+										<div class="col-5 col-lg-3-1">
+											<div class="form_group">
+												<label for="login" class="form__label">毕业时间:</label>
+												<input name="login" id="login" type="text" class="form__input3" th:value="${resume.endTime}" readonly="readonly" placeholder="2021.07">
+											</div>
+										</div>
+
+										<div class="col-5 col-lg-3-1">
+											<div class="form_group" style="margin-right: 0;">
+												<label for="email" class="form__label">邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱：</label>
+												<input name="email" id="email22" type="text" class="form__input3" th:value="${resume.email}" readonly="readonly" placeholder="1269999999@qq.com">
+											</div>
+										</div>
+
+										<div>
+											<div>
+												<label for="lastname23" class="form__label">&nbsp;&nbsp;&nbsp;&nbsp;联系电话:</label>
+												<input name="lastname" id="lastname23" type="text" class="form__input3" th:value="${resume.phone}" readonly="readonly" placeholder="15570000000">
+											</div>
+										</div>
+										<div class="col-12 col-lg-6-1">
+											<div class="form_group">
+												<label for="lastname32" class="form__label">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址:</label>
+												<input name="lastname" id="lastname32" type="text" class="form__input3" th:value="${resume.address}" readonly="readonly" placeholder="福建省厦门市思明区软件园二期观日路4号">
+						
+											</div>
+										</div>
+
+										<div class="col-12 col-lg-6-1">
+											<div class="form_group">
+												<label for="description22" class="form__label">技能专长:</label>
+												<textarea name="description" id="description22" class="form__textarea" placeholder="技能专长" readonly="readonly">[[${resume.skills}]]</textarea>
+											</div>
+										</div>
+
+									</div>
+
+									<div class="col-12 col-lg-6-1">
+										<div class="form_group">
+											<label for="description21" class="form__label">奖&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;项:</label>
+											<textarea name="description" id="description21" class="form__textarea" placeholder="所获奖项" readonly="readonly">[[${resume.awards}]]</textarea>
+										</div>
+									</div>
+									<div class="col-12 col-lg-6-1">
+										<div class="form_group">
+											<label for="description45" class="form__label">项目经历:</label>
+											<textarea name="description" id="description45" class="form__textarea" placeholder="项目介绍" readonly="readonly">[[${resume.experience}]]</textarea>
+										</div>
+									</div>
+									<div class="col-12 col-lg-6-1">
+										<div class="form_group">
+											<label for="description2" class="form__label">自我评价</label>
+											<textarea name="description" id="description2" class="form__textarea" placeholder="评价内容" readonly="readonly">[[${resume.introduce}]]</textarea>
+										</div>
+									</div>
+								<div id="">
+									<div class="col-12">
+										<center><p6>如果觉得不错，点击<button class="form__btn1" type="submit"><span>发送通知面试</span></button>给个机会吧！</p6>
+										</center>
+									</div>
+								</div>
+
+								</form>
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+			
+
+			</div>
+			</div>
+		</main>
+		<!-- end main content -->
+
+		
+		<!-- JS -->
+		<script src="js/jquery-3.4.1.min.js"></script>
+		<script src="js/bootstrap.bundle.min.js"></script>
+		<script src="js/owl.carousel.min.js"></script>
+		<script src="js/wNumb.js"></script>
+		<script src="js/nouislider.min.js"></script>
+		<script src="js/select2.min.js"></script>
+		<script src="js/jquery.mousewheel.min.js"></script>
+		<script src="js/jquery.mCustomScrollbar.min.js"></script>
+		<script src="js/main.js"></script>
+	</body>
+</html>

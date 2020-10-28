@@ -11,8 +11,6 @@ import java.util.List;
 
 @Repository
 public interface HRDao extends JpaRepository<HR,Integer>, JpaSpecificationExecutor<HR>, Serializable {
-    @Query("select h from HR h where h.phone= ?1")
-    HR findByPhone(String phone);
-    @Query("select h from HR h where h.phone=?1 and h.password=?2")
-    HR findByphoneAndPassword(String phone,String password);
+
+    public HR findByPhoneAndPassword(String phone,String password);
 }

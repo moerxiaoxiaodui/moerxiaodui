@@ -26,89 +26,41 @@ public class HRController {
 
     @Resource
     HRService hrService;
-    @Resource
-    RecruitService recruitService;
 
-    @RequestMapping("/findall")
-    @ResponseBody
-    public List<HR> findall(){
-        List<HR> list=hrService.findAll();
-        return list;
-    }
-    //验证注册账号是否已存在
-    @RequestMapping("/findHrByPhone")
-    @ResponseBody
-    Map findHrByPhone(String phone){
-        Map<String,Object> map=new HashMap<>();
-        HR hr=hrService.findHrByPhone(phone);
-        System.out.println(hr);
-        if(hr!=null) {
-            map.put("msg","success");
-            return map;
-        }
-        return null;
-    }
-    @RequestMapping("/register")
-    String register(HR hr){
-        hrService.addHR(hr);
-        return "signin";
-    }
-    //登录
-    @RequestMapping("/findHrByPhoneAndPassword")
-    @ResponseBody
-    Map findHrByPhoneAndPhone(String phone, String password) {
-        Map<String,Object> map=new HashMap<>();
-        HR hr=hrService.findHrByPhoneAndPassword(phone,password);
-        System.out.println(hr);
-        if(hr==null) {
-            map.put("msg","error");
-            return map;
-        }
-        return null;
-    }
-    //hr登录test。
-    @RequestMapping("/hrtestlogin")
-    public String toHRIndex(@RequestParam(name = "phone") String phone,@RequestParam(name = "password") String password
-            ,HttpSession session) {
-        HR hr=hrService.findHrByPhoneAndPassword(phone,password);
+    @RequestMapping("hrLogin")
+    public ModelAndView hrLogin(String phone,String password,HttpSession session){
+        System.out.println("23333");
+        HR hr = hrService.findByPhoneAndPassword(phone,password);
         if(hr!=null){
-            session.setAttribute("hrphone",phone);
-            HR hr2=hrService.findHrByPhone(phone);
-            session.setAttribute("hrid",hr2.getId());
-            return "redirect:/findchr";
-        }else {
-            return "redirect:/hrlogin";
+            session.setAttribute("hr",hr);
+            ModelAndView mv = new ModelAndView("HRindex");
+            mv.addObject("hr",hr);
+            return mv;
+        }else{
+            ModelAndView mv = new ModelAndView("signin");
+            return mv;
         }
     }
 
-    @RequestMapping("/hrlogin")
-    public String hrlogin(){
-        return "signin";
+    @RequestMapping("toAddProkect")
+    public ModelAndView toAddProkect(){
+        ModelAndView mv = new ModelAndView("add-project");
+        return mv;
     }
-    @RequestMapping("/hrregister")
-    public String hrregister(){
-        return "signup";
+
+    @RequestMapping("toMessages")
+    public ModelAndView toMessages(){
+        ModelAndView mv = new ModelAndView("redirect:findSendResume");
+        return mv;
     }
-    @RequestMapping("/hrindex")
-    public String HRIndex(){
-        return "HRindex";
-    }
-    /*
-    * 发布职位
-    * */
-    @RequestMapping("/addrecruit")
-    public String addOneRecruit(Recruit recruit,HttpSession session){
-        Integer hrid = (Integer)session.getAttribute("hrid");
-        recruit.setHrId(hrid);
-        recruitService.addOneRecruit(recruit);
-        return "redirect:/addjob";
-    }
-    /*
-    * 跳转到add-project.html
-    * */
-    @RequestMapping("/addjob")
-    public String addJob(){
-        return "add-project";
+
+    @RequestMapping("toHRindex")
+    public ModelAndView toHRindex(HttpSession session){
+
+        HR hr = (HR) session.getAttribute("hr");
+        ModelAndView mv = new ModelAndView("HRindex");
+        mv.addObject("hr",hr);
+        return mv;
     }
 
 

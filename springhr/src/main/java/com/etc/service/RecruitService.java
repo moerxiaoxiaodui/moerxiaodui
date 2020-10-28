@@ -7,5 +7,5 @@ import com.etc.entity.Recruit;
  * @date 2020/10/26 - 15:44
  */
 public interface RecruitService {
-    public void addOneRecruit(Recruit recruit);
+    public void addRecruit(Recruit recruit);
 }

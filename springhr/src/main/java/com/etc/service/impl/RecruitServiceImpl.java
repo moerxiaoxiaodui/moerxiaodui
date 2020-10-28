@@ -16,7 +16,7 @@ public class RecruitServiceImpl implements RecruitService {
     @Resource
     RecruitDao recruitDao;
     @Override
-    public void addOneRecruit(Recruit recruit) {
+    public void addRecruit(Recruit recruit) {
         recruitDao.save(recruit);
     }
 }

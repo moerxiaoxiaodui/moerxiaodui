@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- CSS -->
+		<link rel="stylesheet" href="css/bootstrap-reboot.min.css">
+		<link rel="stylesheet" href="css/bootstrap-grid.min.css">
+		<link rel="stylesheet" href="css/owl.carousel.min.css">
+		<link rel="stylesheet" href="css/nouislider.min.css">
+		<link rel="stylesheet" href="css/select2.min.css">
+		<link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+		<link rel="stylesheet" href="css/ionicons.min.css">
+		<link rel="stylesheet" href="css/main.css">
+
+		<!-- Favicons -->
+		<link rel="icon" type="image/png" href="icon/favicon-32x32.png" sizes="32x32">
+		<link rel="apple-touch-icon" href="icon/favicon-32x32.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="icon/apple-touch-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="icon/apple-touch-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="icon/apple-touch-icon-144x144.png">
+
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<meta name="author" content="Dmitry Volkov">
+
+		<title>iJ – Job Board & Freelance Services Marketplace HTML Template</title>
+	</head>
+
+	<body>
+			<!-- header -->
+		<header class="header">
+			<div class="container">
+				<div class="row">
+					<div class="col-7 col-md-9 col-lg-8 col-xl-9">
+						<div class="header__content">
+							<!-- header menu btn -->
+							<button class="header__btn" type="button">
+								<span></span>
+								<span></span>
+								<span></span>
+							</button>
+							<!-- end header menu btn -->
+		
+							<!-- header logo -->
+							<a href="HRindex.html" class="header__logo">
+								<img src="img/logo.svg" alt="">
+							</a>
+							<!-- end header logo -->
+		
+							<!-- header nav -->
+							<ul class="header__nav">
+								<!-- dropdown -->
+								<li class="header__nav-item">
+									<a href="HRindex.html" class="header__nav-link">主页</a>
+								</li>
+								<!-- end dropdown -->
+		
+								<!-- dropdown -->
+								<li class="header__nav-item">
+									<a class="dropdown-toggle header__nav-link" href="#" role="button" id="dropdownMenu专案" data-toggle="dropdown"
+									 aria-haspopup="true" aria-expanded="false">工作</a>
+		
+									<ul class="dropdown-menu header__dropdown-menu" aria-labelledby="dropdownMenu专案">
+								
+										<li><a href="add-project.html">发布工作</a></li>
+									</ul>
+								</li>
+								<!-- end dropdown -->
+		
+			
+		
+								<!-- dropdown -->
+								<li class="header__nav-item">
+									<a class="dropdown-toggle header__nav-link" href="#" role="button" id="dropdownMenu" data-toggle="dropdown"
+									 aria-haspopup="true" aria-expanded="false">求职者</a>
+		
+									<ul class="dropdown-menu header__dropdown-menu" aria-labelledby="dropdownMenu个人资料">
+										<li><a href="profiles.html">所有求职者</a></li>
+								
+									</ul>
+								</li>
+								<!-- end dropdown -->
+								
+								<!-- dropdown -->
+								<li class="header__nav-item">
+									<a class="dropdown-toggle header__nav-link" href="#" role="button" id="dropdownMenu个人资料" data-toggle="dropdown"
+									 aria-haspopup="true" aria-expanded="false">面试通知</a>
+								
+									<ul class="dropdown-menu header__dropdown-menu" aria-labelledby="dropdownMenu个人资料">
+										<li><a href="interviewNotice.html">查看面试通知</a></li>
+								
+									</ul>
+								</li>
+								<!-- end dropdown -->
+								
+							</ul>
+							<!-- end header nav -->
+		
+							
+						</div>
+					</div>
+		
+					<div class="col-5 col-md-3 col-lg-4 col-xl-3">
+						<div class="header__content header__content--end">
+							<a href="messages.html" class="header__messages header__messages--active">
+								<i class="icon ion-ios-mail"></i>
+							</a>
+		
+							
+		
+							<div class="header__profile">
+								<a class="dropdown-toggle header__profile-btn" href="#" role="button" id="dropdownMenuProfile" data-toggle="dropdown"
+								 aria-haspopup="true" aria-expanded="false">
+									<img src="img/user5.jpg" alt="">
+									<span>John Doe</span>
+								</a>
+		
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- end header -->
+
+		<!-- main content -->
+		<!-- main content -->
+		<main class="main">
+			<div class="container">
+				<div class="row">
+					<div class="col-12 col-md-5 col-lg-4 col-xl-2">
+
+					</div>
+
+					<div class="col-12 col-md-7 col-lg-8 col-xl-8">
+						<center>
+							<h2>收到以下求职者简历</h2>
+						</center>
+						<br><br>
+
+						<div th:each="sendresume:${list}" >
+						<!-- post -->
+						<div class="post">
+							<div class="post__head">
+								<a href="#" class="post__head-img">
+									<img src="img/user8.jpg" alt="">
+								</a>
+								<div class="post__message" style="max-width:30vw;overflow: hidden;">
+									收到&nbsp&nbsp<p9>[[${sendresume.resume.name}]]</p9>&nbsp&nbsp的&nbsp&nbsp<p9>[[${sendresume.job}]]</p9> &nbsp&nbsp的求职信息
+								</div>
+								<a th:href="@{findResumeById(id=${sendresume.resume.user.id})}"><span style="position:absolute;left: 40vw;">查看</span></a>
+							</div>
+							<div>
+								<p style="position: relative;left: 34vw;">2020.01.01</p>
+							</div>
+						</div>
+						<!-- end post -->
+						<div>
+
+
+
+					</div>
+
+					<div class="col-12 col-md-5 col-lg-4 col-xl-2">
+
+					</div>
+				</div>
+			</div>
+		</main>
+
+
+
+		<!-- JS -->
+		<script src="js/jquery-3.4.1.min.js"></script>
+		<script src="js/bootstrap.bundle.min.js"></script>
+		<script src="js/owl.carousel.min.js"></script>
+		<script src="js/wNumb.js"></script>
+		<script src="js/nouislider.min.js"></script>
+		<script src="js/select2.min.js"></script>
+		<script src="js/jquery.mousewheel.min.js"></script>
+		<script src="js/jquery.mCustomScrollbar.min.js"></script>
+		<script src="js/main.js"></script>
+	</body>
+</html>

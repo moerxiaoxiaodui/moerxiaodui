@@ -47,8 +47,10 @@ public class Resume implements Serializable {
     String major;
     @Column(name = "education")
     String education;
-    @Column(name = "userId")
-    String userId;
+
+    @OneToOne
+    @JoinColumn(name ="userId")
+    private User user;
 
     public Resume() {
     }
@@ -69,7 +71,7 @@ public class Resume implements Serializable {
         this.avatar = avatar;
         this.major = major;
         this.education = education;
-        this.userId = userId;
+//        this.userId = userId;
     }
 
     public Integer getId() {
@@ -200,13 +202,13 @@ public class Resume implements Serializable {
         this.education = education;
     }
 
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
+//    public String getUserId() {
+//        return userId;
+//    }
+//
+//    public void setUserId(String userId) {
+//        this.userId = userId;
+//    }
 
     @Override
     public String toString() {
@@ -227,7 +229,7 @@ public class Resume implements Serializable {
                 ", avatar='" + avatar + '\'' +
                 ", major='" + major + '\'' +
                 ", education='" + education + '\'' +
-                ", userId='" + userId + '\'' +
+//                ", userId='" + userId + '\'' +
                 '}';
     }
 }

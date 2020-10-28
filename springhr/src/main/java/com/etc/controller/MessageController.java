@@ -30,23 +30,27 @@ public class MessageController {
 
     //添加面试通知信息
     @RequestMapping("tianjia")
-    public ModelAndView tianjia(){
+    public ModelAndView tianjia(String name){
+        System.out.println("name:"+name);
         ModelAndView mv = new ModelAndView("interviewNotice");
+        mv.addObject("name",name);
         return mv;
     }
 
     //保存面试通知信息
     @RequestMapping("saveMessage")
-    @ResponseBody
-    public void saveMessage(Message message, HttpSession session){
-        message.setReadState("0");
-        message.setTitle("面试通知");
+    public ModelAndView saveMessage(Message message, HttpSession session){
+
 //        HR hr = (HR)session.getAttribute("hr");
         HR hr = new HR();
         hr.setId(2);
         message.setHr(hr);
+        message.setReadState("0");
+        message.setTitle("面试通知");
         System.out.println(message);
         messageService.saveMessage(message);
+        ModelAndView mv = new ModelAndView("redirect:findSendResume");
+        return mv;
     }
 
     //标记已读信息

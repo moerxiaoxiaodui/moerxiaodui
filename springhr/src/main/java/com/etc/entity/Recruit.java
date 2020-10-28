@@ -1,5 +1,7 @@
 package com.etc.entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -9,6 +11,7 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "recruit")
+@Data
 public class Recruit implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,8 +29,13 @@ public class Recruit implements Serializable {
     private String createTime;
     @Column(name = "updateTime")
     private String updateTime;
-    @Column(name = "hrId")
-    private Integer hrId;
+
+//    @Column(name = "hrId")
+//    private Integer hrId;
+
+    @OneToOne
+    @JoinColumn(name="hrId")
+    private HR hr;
 
     public Recruit(String job, String salary, String title, String content, String createTime, String updateTime, Integer hrId) {
         this.job = job;
@@ -36,7 +44,7 @@ public class Recruit implements Serializable {
         this.content = content;
         this.createTime = createTime;
         this.updateTime = updateTime;
-        this.hrId = hrId;
+//        this.hrId = hrId;
     }
 
     public Recruit() {
@@ -98,13 +106,13 @@ public class Recruit implements Serializable {
         this.updateTime = updateTime;
     }
 
-    public Integer getHrId() {
-        return hrId;
-    }
-
-    public void setHrId(Integer hrId) {
-        this.hrId = hrId;
-    }
+//    public Integer getHrId() {
+//        return hrId;
+//    }
+//
+//    public void setHrId(Integer hrId) {
+//        this.hrId = hrId;
+//    }
 
     @Override
     public String toString() {
@@ -116,7 +124,7 @@ public class Recruit implements Serializable {
                 ", content='" + content + '\'' +
                 ", createTime='" + createTime + '\'' +
                 ", updateTime='" + updateTime + '\'' +
-                ", hrId=" + hrId +
+//                ", hrId=" + hrId +
                 '}';
     }
 }
