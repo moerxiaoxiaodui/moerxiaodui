@@ -44,7 +44,7 @@
 
             <div class="col-5 col-md-3 col-lg-4 col-xl-3">
                 <div class="header__content header__content--end">
-                    <a th:href="@{/message(id=${session.user.id})}" class="header__messages header__messages--active">
+                    <a th:href="@{/message/}+${session.user.id}"  class="header__messages header__messages--active">
                         <small>最新消息</small><i class="icon ion-ios-mail"></i>
                     </a>
                     <div class="header__profile">
