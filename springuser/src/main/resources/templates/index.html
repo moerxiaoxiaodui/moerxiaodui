@@ -77,8 +77,8 @@
                             <img  th:src="${(session.user.avatar !=null) ? session.user.avatar : '/img/user.svg'  }" alt="">                        </div>
                     </div>
                     <div class="user__title">
-                        <h2>姓名:[[${user?.name}]]</h2>
-                        <p1>意向岗位:[[${user?.intentionJob}]]</p1>
+                        <h2>姓名:[[${session.user?.name}]]</h2>
+                        <p1>意向岗位:[[${session.user?.intentionJob}]]</p1>
                     </div>
                     <div class="user__btns">
                         <a href="#" class="user__btn user__btn--blue"><span>[[${session.resume?.major}]]</span></a>
@@ -86,10 +86,10 @@
                     </div>
                     <ul class="user__stats">
                         <li>
-                            <p2 th:text="${resume?.school}"></p2>
+                            <p2 th:text="${session.resume?.school}"></p2>
                         </li>
                         <li>
-                            <p2 th:text="${resume?.birth}"></p2>
+                            <p2 th:text="${session.resume?.birth}"></p2>
                         </li>
                     </ul>
                 </div>
