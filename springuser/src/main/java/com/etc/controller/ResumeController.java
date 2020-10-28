@@ -1,7 +1,11 @@
 package com.etc.controller;
 
+import com.etc.entity.Message;
+import com.etc.entity.Recruit;
 import com.etc.entity.Resume;
 import com.etc.entity.User;
+import com.etc.service.MessageService;
+import com.etc.service.RecruitService;
 import com.etc.service.ResumeService;
 import com.etc.service.UserService;
 import org.apache.tomcat.util.http.fileupload.FileItem;
@@ -31,20 +35,30 @@ public class ResumeController {
     private ResumeService resumeService;
     @Resource
     private UserService userService;
+    @Resource
+    private MessageService messageService;
+    @Resource
+    private RecruitService recruitService;
 
 
     @RequestMapping("/index")
-    public String index(){
-        return "index";
+    public ModelAndView index(){
+        ModelAndView mv = new ModelAndView("index");
+        List<Recruit> list = recruitService.findRecruitByKey("");
+        mv.addObject("list",list);
+        return mv;
     }
 
-    @RequestMapping("message")
+    @RequestMapping("message/{userId}")
     public ModelAndView message(@PathVariable Integer userId){
         User u=userService.findOneUserbyid(userId);
         System.out.println(u);
+
         ModelAndView mv = new ModelAndView("returnNotice");
         if (u!=null) {
+            List<Message> list = messageService.findAllByToId(userId);
             mv.addObject("user",u);
+            mv.addObject("list",list);
         }
         else {
             mv.setViewName("index");

@@ -1,8 +1,10 @@
 package com.etc.controller;
 
 import com.etc.entity.Company;
+import com.etc.entity.Recruit;
 import com.etc.entity.Resume;
 import com.etc.entity.User;
+import com.etc.service.RecruitService;
 import com.etc.service.ResumeService;
 import com.etc.service.UserService;
 import org.springframework.data.domain.Page;
@@ -32,6 +34,10 @@ UserController {
     UserService userService;
     @Resource
     ResumeService resumeService;
+    @Resource
+    private RecruitService recruitService;
+
+
     /*
     * 用户注册
     * */
@@ -117,6 +123,8 @@ UserController {
             session.setAttribute("user",u);
             session.setAttribute("resume",resume);
             mv.addObject("resume",resume);
+            List<Recruit> list = recruitService.findRecruitByKey("");
+            mv.addObject("list",list);
             System.out.println(u);
            // model.addAttribute("listCompany",companyList);
             return mv;

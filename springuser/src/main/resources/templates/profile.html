@@ -13,27 +13,30 @@
 </head>
 
 <body>
+<!-- header -->
 <header class="header">
     <div class="container">
         <div class="row">
             <div class="col-7 col-md-9 col-lg-8 col-xl-9">
                 <div class="header__content">
                     <a href="#" class="header__logo">
-                        <img th:src="@{/img/logo.svg}" alt="">
+                        <img src="img/logo.svg" alt="">
                     </a>
                     <ul class="header__nav">
+
                         <li class="header__nav-item">
                             <a class="header__nav-link" th:href="@{/index}"
                                role="button" id="dropdownMenu公司介绍">主页</a>
                         </li>
 
                         <li class="header__nav-item">
-                            <a class="header__nav-link" th:href="@{companies}" role="button" id="dropdownMenu工作"
+                            <a class="header__nav-link" href="findRecruit" role="button" id="dropdownMenu工作"
                                aria-expanded="false">查找工作</a>
                         </li>
+
                         <li class="header__nav-item">
                             <a class="dropdown-toggle header__nav-link"
-                               th:href="@{/myresume/}+${session.user.id}" role="button" id="dropdownMenu个人资料">个人资料</a>
+                               th:href="@{/myresume/}+${session.user.id}" role="button" id="dropdownMenu个人资料">个人简历</a>
                         </li>
                     </ul>
                 </div>
@@ -48,8 +51,8 @@
                         <a class="dropdown-toggle header__profile-btn" href="#" role="button" id="dropdownMenuProfile"
                            data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">
-                            <img  th:src="${(resume.avatar !=null) ? resume.avatar : '/img/user.svg'  }" alt="">
-                            <span th:text="${resume?.name}"></span>
+                            <img  th:src="${(session.user.avatar !=null) ? session.user.avatar : '/img/user.svg'  }" alt="">
+                            <span th:text="${user?.name}"></span>
                         </a>
 
                         <ul class="dropdown-menu dropdown-menu-right header__dropdown-menu header__dropdown-menu--right"

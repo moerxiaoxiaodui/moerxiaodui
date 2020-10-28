@@ -44,7 +44,7 @@
 
             <div class="col-5 col-md-3 col-lg-4 col-xl-3">
                 <div class="header__content header__content--end">
-                    <a th:href="@{/message(id=${session.user.id})}" class="header__messages header__messages--active">
+                    <a th:href="@{/message/}+${session.user.id}" class="header__messages header__messages--active">
                         <small>最新消息</small><i class="icon ion-ios-mail"></i>
                     </a>
                     <div class="header__profile">
@@ -97,6 +97,7 @@
             </div>
 
             <div class="col-12 col-md-7 col-lg-8 col-xl-6">
+                <div th:each="recruit:${list}">
                 <!-- post -->
                 <div class="post">
                     <div class="post__head">
@@ -104,21 +105,17 @@
                             <img src="img/user8.jpg" alt="">
                         </a>
                         <div class="post__head-title">
-                            <h5><a href="#">公司名称</a></h5>
-                        </div>
-
-                        <div class="post__xueli">
-                            <span>学历</span>
+                            <h5><a href="#">[[${recruit.hr.company.name}]]</a></h5>
                         </div>
 
                         <div class="post__location">
                             <i class="icon ion-ios-navigate"></i>
-                            <span>地址</span>
+                            <span>[[${recruit.hr.company.address}]]</span>
                         </div>
 
                         <div class="post__actions">
 
-                            <a class="post__actions-btn post__actions-btn--red" href="#">
+                            <a class="post__actions-btn post__actions-btn--red" th:href="@{findJob(id=${recruit.id})}">
                                 <i class="icon ion-ios-mail"></i>
                             </a>
                         </div>
@@ -126,235 +123,20 @@
                     </div>
 
                     <div class="post__options">
-                        <span>招聘职位</span>
-                        <p>薪资范围</p>
-                        <p> 更新时间</p>
+                        <span>[[${recruit.job}]]</span>
+                        <p>[[${recruit.salary}]]</p>
                     </div>
 
 
                     <div class="collapse post__collapse" id="collapse12">
-                        <form action="#" class="post__form">
+                        <form action="findJob" class="post__form">
+                            <input type="text" th:value="${recruit.id}" hidden="hidden">
                             <input type="text" placeholder="Type your comment...">
-                            <button type="button"><i class="icon ion-ios-paper-plane"></i></button>
+                            <button type="submit"><i class="icon ion-ios-paper-plane"></i></button>
                         </form>
                     </div>
                 </div>
                 <!-- end post -->
-
-
-                <!-- post -->
-                <div class="post">
-                    <div class="post__head">
-                        <a href="#" class="post__head-img">
-                            <img src="img/user8.jpg" alt="">
-                        </a>
-                        <div class="post__head-title">
-                            <h5><a href="#">公司名称</a></h5>
-                        </div>
-
-                        <div class="post__xueli">
-                            <span>学历</span>
-                        </div>
-
-                        <div class="post__location">
-                            <i class="icon ion-ios-navigate"></i>
-                            <span>地址</span>
-                        </div>
-
-                        <div class="post__actions">
-
-                            <a class="post__actions-btn post__actions-btn--red" href="#">
-                                <i class="icon ion-ios-mail"></i>
-                            </a>
-                        </div>
-
-                    </div>
-
-                    <div class="post__options">
-                        <span>招聘职位</span>
-                        <p>薪资范围</p>
-                        <p> 更新时间</p>
-                    </div>
-
-
-                    <div class="collapse post__collapse" id="collapse1">
-                        <form action="#" class="post__form">
-                            <input type="text" placeholder="Type your comment...">
-                            <button type="button"><i class="icon ion-ios-paper-plane"></i></button>
-                        </form>
-                    </div>
-                </div>
-                <!-- end post -->
-                <!-- post -->
-                <div class="post">
-                    <div class="post__head">
-                        <a href="#" class="post__head-img">
-                            <img src="img/user8.jpg" alt="">
-                        </a>
-                        <div class="post__head-title">
-                            <h5><a href="#">公司名称</a></h5>
-                        </div>
-
-                        <div class="post__xueli">
-                            <span>学历</span>
-                        </div>
-
-                        <div class="post__location">
-                            <i class="icon ion-ios-navigate"></i>
-                            <span>地址</span>
-                        </div>
-
-                        <div class="post__actions">
-
-                            <a class="post__actions-btn post__actions-btn--red" href="#">
-                                <i class="icon ion-ios-mail"></i>
-                            </a>
-                        </div>
-
-                    </div>
-
-                    <div class="post__options">
-                        <span>招聘职位</span>
-                        <p>薪资范围</p>
-                        <p> 更新时间</p>
-                    </div>
-
-
-                    <div class="collapse post__collapse" id="collapse1">
-                        <form action="#" class="post__form">
-                            <input type="text" placeholder="Type your comment...">
-                            <button type="button"><i class="icon ion-ios-paper-plane"></i></button>
-                        </form>
-                    </div>
-                </div>
-                <!-- end post -->
-                <!-- post -->
-                <div class="post">
-                    <div class="post__head">
-                        <a href="#" class="post__head-img">
-                            <img src="img/user8.jpg" alt="">
-                        </a>
-                        <div class="post__head-title">
-                            <h5><a href="#">公司名称</a></h5>
-                        </div>
-
-                        <div class="post__xueli">
-                            <span>学历</span>
-                        </div>
-
-                        <div class="post__location">
-                            <i class="icon ion-ios-navigate"></i>
-                            <span>地址</span>
-                        </div>
-
-                        <div class="post__actions">
-
-                            <a class="post__actions-btn post__actions-btn--red" href="#">
-                                <i class="icon ion-ios-mail"></i>
-                            </a>
-                        </div>
-
-                    </div>
-
-                    <div class="post__options">
-                        <span>招聘职位</span>
-                        <p>薪资范围</p>
-                        <p> 更新时间</p>
-                    </div>
-
-
-                    <div class="collapse post__collapse" id="collapse1">
-                        <form action="#" class="post__form">
-                            <input type="text" placeholder="Type your comment...">
-                            <button type="button"><i class="icon ion-ios-paper-plane"></i></button>
-                        </form>
-                    </div>
-                </div>
-                <!-- end post -->
-                <!-- post -->
-                <div class="post">
-                    <div class="post__head">
-                        <a href="#" class="post__head-img">
-                            <img src="img/user8.jpg" alt="">
-                        </a>
-                        <div class="post__head-title">
-                            <h5><a href="#">公司名称</a></h5>
-                        </div>
-
-                        <div class="post__xueli">
-                            <span>学历</span>
-                        </div>
-
-                        <div class="post__location">
-                            <i class="icon ion-ios-navigate"></i>
-                            <span>地址</span>
-                        </div>
-
-                        <div class="post__actions">
-
-                            <a class="post__actions-btn post__actions-btn--red" href="#">
-                                <i class="icon ion-ios-mail"></i>
-                            </a>
-                        </div>
-
-                    </div>
-
-                    <div class="post__options">
-                        <span>招聘职位</span>
-                        <p>薪资范围</p>
-                        <p> 更新时间</p>
-                    </div>
-
-
-                    <div class="collapse post__collapse" id="collapse1">
-                        <form action="#" class="post__form">
-                            <input type="text" placeholder="Type your comment...">
-                            <button type="button"><i class="icon ion-ios-paper-plane"></i></button>
-                        </form>
-                    </div>
-                </div>
-                <!-- end post -->
-                <!-- post -->
-                <div class="post">
-                    <div class="post__head">
-                        <a href="#" class="post__head-img">
-                            <img src="img/user8.jpg" alt="">
-                        </a>
-                        <div class="post__head-title">
-                            <h5><a href="#">公司名称</a></h5>
-                        </div>
-
-                        <div class="post__xueli">
-                            <span>学历</span>
-                        </div>
-
-                        <div class="post__location">
-                            <i class="icon ion-ios-navigate"></i>
-                            <span>地址</span>
-                        </div>
-
-                        <div class="post__actions">
-
-                            <a class="post__actions-btn post__actions-btn--red" href="#">
-                                <i class="icon ion-ios-mail"></i>
-                            </a>
-                        </div>
-
-                    </div>
-
-                    <div class="post__options">
-                        <span>招聘职位</span>
-                        <p>薪资范围</p>
-                        <p> 更新时间</p>
-                    </div>
-
-
-                    <div class="collapse post__collapse" id="collapse1">
-                        <form action="#" class="post__form">
-                            <input type="text" placeholder="Type your comment...">
-                            <button type="button"><i class="icon ion-ios-paper-plane"></i></button>
-                        </form>
-                    </div>
                 </div>
             </div>
             <div class="col-12 col-md-5 col-lg-4 col-xl-3">
