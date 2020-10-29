@@ -133,13 +133,30 @@ UserController {
             return mv;
         }
     }
+    @RequestMapping("/toupdateuser/{userId}")
+    public ModelAndView updateUser(@PathVariable Integer userId){
+        System.out.println(userId);
+        User u=userService.findOneUserbyid(userId);
+        System.out.println(u);
+        return new ModelAndView("updateuser","user",u);
+    }
 
     @RequestMapping("/deletebyphone")
     @ResponseBody
     public void delete(String phone){
         userService.deleteUserByphone(phone);
     }
+    @RequestMapping("/saveuser")
+    public String saveuser(User u,HttpSession session){
 
+        userService.updateUser(u);
+        Resume resume=resumeService.findByUserId(u.getId());
+        System.out.println(resume);
+        session.setAttribute("user",u);
+        session.setAttribute("resume",resume);
+
+        return "index";
+    }
 
     @RequestMapping("/test2")
     @ResponseBody

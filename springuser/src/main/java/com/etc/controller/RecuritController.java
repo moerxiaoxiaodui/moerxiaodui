@@ -25,7 +25,7 @@ public class RecuritController {
     private RecruitService recruitService;
 
 
-    @RequestMapping("findRecruit")
+    @RequestMapping("/findRecruit")
     public ModelAndView fin(String key){
         List<Recruit> list = recruitService.findRecruitByKey(key);
         ModelAndView mv = new ModelAndView("companies");

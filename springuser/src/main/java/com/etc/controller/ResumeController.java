@@ -21,6 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
@@ -105,16 +106,16 @@ public class ResumeController {
             String imageUrl ="/headpicture/"+ newFileName;
             System.out.println(imageUrl);
             resume.setAvatar(imageUrl);
-            ModelAndView mv = new ModelAndView("redirect:/myresume/"+"1");
-            resume.setUserId(1);
+            ModelAndView mv = new ModelAndView("forward:/myresume/"+resume.getUserId());
             System.out.println(resume);
             resumeService.saveUserResume(resume);
             mv.addObject("resume", resume);
+            HttpSession session=request.getSession();
+            session.setAttribute("resume",resume);
             return mv;
         }
         else{
-            ModelAndView mv = new ModelAndView("redirect:/myresume/"+"1");
-            resume.setUserId(1);
+            ModelAndView mv = new ModelAndView("redirect:/myresume/"+resume.getUserId());
             System.out.println(resume);
             resumeService.saveUserResume(resume);
             mv.addObject("resume", resume);
